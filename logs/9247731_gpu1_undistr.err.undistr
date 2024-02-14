@@ -1,0 +1,31 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+ERROR: pytest-astropy 0.8.0 requires pytest-cov>=2.0, which is not installed.
+ERROR: pytest-astropy 0.8.0 requires pytest-filter-subpackage>=0.1, which is not installed.
+  WARNING: The scripts fonttools, pyftmerge, pyftsubset and ttx are installed in '/u/sashb/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+02/05/2024 18:09:23 - INFO - __main__ -   Torch device: cpu
+02/05/2024 18:09:23 - INFO - trphysx.embedding.training.enn_data_handler -   Creating training loader.
+Traceback (most recent call last):
+  File "examples/lorenz/train_lorenz_enn.py", line 50, in <module>
+    training_loader = data_handler.createTrainingLoader(args.training_h5_file, block_size=args.block_size, stride=args.stride, ndata=args.n_train, batch_size=args.batch_size)
+  File "/raven/u/sashb/projects/github_repos/transformer-physx/trphysx/embedding/training/enn_data_handler.py", line 111, in createTrainingLoader
+    assert os.path.isfile(file_path), "Training HDF5 file {} not found".format(file_path)
+AssertionError: Training HDF5 file ./data/lorenz_training_rk.hdf5 not found
+srun: error: ravg1199: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=9247731.0

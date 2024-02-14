@@ -1,0 +1,32 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading pytorch/gpu-cuda-11.2/1.8.0
+  Loading requirement: cuda/11.2
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+02/07/2024 13:04:55 - INFO - root -   Using a single GPU for training.
+02/07/2024 13:04:55 - INFO - trphysx.embedding.embedding_lorenz -   Number of embedding parameters: 36192
+Traceback (most recent call last):
+  File "examples/lorenz/train_lorenz_transformer.py", line 58, in <module>
+    model_args.embedding_file_or_path).to(training_args.src_device)
+  File "/raven/u/sashb/projects/github_repos/transformer-physx/trphysx/embedding/embedding_auto.py", line 128, in load_model
+    model.load_model(file_or_path_directory, epoch)
+  File "/raven/u/sashb/projects/github_repos/transformer-physx/trphysx/embedding/embedding_model.py", line 119, in load_model
+    raise FileNotFoundError("Provided path or file ({}) does not exist".format(file_or_path_directory))
+FileNotFoundError: Provided path or file (./embedding_lorenz300.pth) does not exist
+srun: error: ravg1033: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=9276512.0

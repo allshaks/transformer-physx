@@ -1,0 +1,94 @@
+Obtaining file:///raven/u/sashb/projects/github_repos/transformer-physx
+Requirement already satisfied: torch>=1.7.0 in /raven/u/system/soft/SLE_15/packages/x86_64/pytorch/cpu/anaconda_3_2020.02-2020.02/1.8.0/lib/python3.7/site-packages (from trphysx==0.0.8) (1.8.0+cpu)
+Requirement already satisfied: filelock>=3.0.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from trphysx==0.0.8) (3.0.12)
+Requirement already satisfied: h5py>=2.9.0 in /raven/u/system/soft/SLE_15/packages/skylake/h5py-mpi/gcc_10-10.2.0-anaconda_3_2020.02-2020.02-impi_2021.2-2021.2.0/2.10.0/lib/python3.7/site-packages (from trphysx==0.0.8) (2.10.0)
+Requirement already satisfied: numpy>=1.15.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from trphysx==0.0.8) (1.18.1)
+Requirement already satisfied: matplotlib>=3.0.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from trphysx==0.0.8) (3.1.3)
+Requirement already satisfied: typing-extensions in /raven/u/system/soft/SLE_15/packages/x86_64/pytorch/cpu/anaconda_3_2020.02-2020.02/1.8.0/lib/python3.7/site-packages (from torch>=1.7.0->trphysx==0.0.8) (3.7.4.3)
+Requirement already satisfied: six in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from h5py>=2.9.0->trphysx==0.0.8) (1.14.0)
+Requirement already satisfied: python-dateutil>=2.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.0.0->trphysx==0.0.8) (2.8.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.0.0->trphysx==0.0.8) (2.4.6)
+Requirement already satisfied: kiwisolver>=1.0.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.0.0->trphysx==0.0.8) (1.1.0)
+Requirement already satisfied: cycler>=0.10 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.0.0->trphysx==0.0.8) (0.10.0)
+Requirement already satisfied: setuptools in /raven/u/sashb/venvs/project_env/lib/python3.7/site-packages (from kiwisolver>=1.0.1->matplotlib>=3.0.0->trphysx==0.0.8) (41.2.0)
+Installing collected packages: trphysx
+  Running setup.py develop for trphysx
+Successfully installed trphysx
+Collecting sphinx-rtd-theme==0.5.0 (from -r ./docs/requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/c3/86/1addf25a238bbd8466bb099f23d9a9f13494b22b37b44f6c41a778b8730f/sphinx_rtd_theme-0.5.0-py2.py3-none-any.whl (10.8MB)
+Collecting sphinxcontrib-applehelp==1.0.2 (from -r ./docs/requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/dc/47/86022665a9433d89a66f5911b558ddff69861766807ba685de2e324bd6ed/sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121kB)
+Collecting sphinxcontrib-devhelp==1.0.2 (from -r ./docs/requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/c5/09/5de5ed43a521387f18bdf5f5af31d099605c992fd25372b2b9b825ce48ee/sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl (84kB)
+Collecting sphinxcontrib-htmlhelp==1.0.3 (from -r ./docs/requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/36/62/8222554b29b3acde8420128d6d3999c5904d40922ef4b6ccb370e2be7421/sphinxcontrib_htmlhelp-1.0.3-py2.py3-none-any.whl (96kB)
+Requirement already satisfied: sphinxcontrib-jsmath==1.0.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from -r ./docs/requirements.txt (line 9)) (1.0.1)
+Collecting sphinxcontrib-napoleon==0.7 (from -r ./docs/requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/75/f2/6b7627dfe7b4e418e295e254bb15c3a6455f11f8c0ad0d43113f678049c3/sphinxcontrib_napoleon-0.7-py2.py3-none-any.whl
+Collecting sphinxcontrib-qthelp==1.0.3 (from -r ./docs/requirements.txt (line 11))
+  Downloading https://files.pythonhosted.org/packages/2b/14/05f9206cf4e9cfca1afb5fd224c7cd434dcc3a433d6d9e4e0264d29c6cdb/sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90kB)
+Collecting sphinxcontrib-serializinghtml==1.1.4 (from -r ./docs/requirements.txt (line 12))
+  Downloading https://files.pythonhosted.org/packages/9a/ca/bfad79b79b3821d0c6361c431f0ef4aec16ee248338b2c2013008b34d345/sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl (89kB)
+Collecting docutils==0.17.1 (from -r ./docs/requirements.txt (line 13))
+  Downloading https://files.pythonhosted.org/packages/4c/5e/6003a0d1f37725ec2ebd4046b657abb9372202655f96e76795dca8c0063c/docutils-0.17.1-py2.py3-none-any.whl (575kB)
+Requirement already satisfied: filelock>=3.0.12 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from -r ./docs/requirements.txt (line 17)) (3.0.12)
+Collecting packaging>=20.9 (from -r ./docs/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/ec/1a/610693ac4ee14fcdf2d9bf3c493370e4f2ef7ae2e19217d7a237ff42367d/packaging-23.2-py3-none-any.whl (53kB)
+Collecting matplotlib>=3.4.2 (from -r ./docs/requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/ad/62/7b662284352867a86acfb636761ba351723fc3a235efd8397578d903413d/matplotlib-3.5.3-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl (11.2MB)
+Requirement already satisfied: sphinx in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.4.0)
+Collecting pockets>=0.3 (from sphinxcontrib-napoleon==0.7->-r ./docs/requirements.txt (line 10))
+  Downloading https://files.pythonhosted.org/packages/e9/2f/a4583c70fbd8cd04910e2884bcc2bdd670e884061f7b4d70bc13e632a993/pockets-0.9.1-py2.py3-none-any.whl
+Requirement already satisfied: six>=1.5.2 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinxcontrib-napoleon==0.7->-r ./docs/requirements.txt (line 10)) (1.14.0)
+Requirement already satisfied: python-dateutil>=2.7 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (2.8.1)
+Requirement already satisfied: numpy>=1.17 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (1.18.1)
+Collecting fonttools>=4.22.0 (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19))
+  Downloading https://files.pythonhosted.org/packages/e3/d9/e9bae85e84737e76ebbcbea13607236da0c0699baed0ae4f1151b728a608/fonttools-4.38.0-py3-none-any.whl (965kB)
+Requirement already satisfied: kiwisolver>=1.0.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (1.1.0)
+Requirement already satisfied: pillow>=6.2.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (7.0.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (2.4.6)
+Requirement already satisfied: cycler>=0.10 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from matplotlib>=3.4.2->-r ./docs/requirements.txt (line 19)) (0.10.0)
+Requirement already satisfied: requests>=2.5.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.22.0)
+Requirement already satisfied: imagesize in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (1.2.0)
+Requirement already satisfied: babel!=2.0,>=1.3 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.8.0)
+Requirement already satisfied: Pygments>=2.0 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.5.2)
+Requirement already satisfied: alabaster<0.8,>=0.7 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (0.7.12)
+Requirement already satisfied: snowballstemmer>=1.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.0.0)
+Requirement already satisfied: setuptools in /raven/u/sashb/venvs/project_env/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (41.2.0)
+Requirement already satisfied: Jinja2>=2.3 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.11.1)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from requests>=2.5.0->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from requests>=2.5.0->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2019.11.28)
+Requirement already satisfied: idna<2.9,>=2.5 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from requests>=2.5.0->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2.8)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from requests>=2.5.0->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (1.25.8)
+Requirement already satisfied: pytz>=2015.7 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from babel!=2.0,>=1.3->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (2019.3)
+Requirement already satisfied: MarkupSafe>=0.23 in /raven/u/system/soft/SLE_15/packages/x86_64/anaconda/3/2020.02/lib/python3.7/site-packages (from Jinja2>=2.3->sphinx->sphinx-rtd-theme==0.5.0->-r ./docs/requirements.txt (line 5)) (1.1.1)
+Installing collected packages: sphinx-rtd-theme, sphinxcontrib-applehelp, sphinxcontrib-devhelp, sphinxcontrib-htmlhelp, pockets, sphinxcontrib-napoleon, sphinxcontrib-qthelp, sphinxcontrib-serializinghtml, docutils, packaging, fonttools, matplotlib
+Successfully installed docutils-0.17.1 fonttools-4.38.0 matplotlib-3.5.3 packaging-23.2 pockets-0.9.1 sphinx-rtd-theme-0.5.0 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-1.0.3 sphinxcontrib-napoleon-0.7 sphinxcontrib-qthelp-1.0.3 sphinxcontrib-serializinghtml-1.1.4
+                                  
+================================= 
+Global information about the job: 
+================================= 
+  
+Job owner: sashb(50092)
+Job name:  lorenz
+Node list: ravg1199
+Job start: Mon Feb  5 18:08:59 CET 2024
+Job end:   Mon Feb  5 18:09:23 CET 2024
+Work dir:  /u/sashb/projects/github_repos/transformer-physx/./
+Command:   /raven/u/sashb/projects/github_repos/transformer-physx/send_to_raven.sbatch
+  
+  
+  
+==========================================================================================
+Information on jobsteps (Note: MaxRSS/AveRSS is the maximum/average over all 
+tasks of the per-task memory high-water marks; cf. "man sacct"): 
+==========================================================================================
+  
+JobID            JobName NNodes NTasks  NCPUS       MaxRSS       AveRSS    Elapsed ExitCode
+------------- ---------- ------ ------ ------ ------------ ------------ ---------- --------
+9247731           lorenz      1            36                             00:00:24      1:0
+9247731.0         python      1      1     36        1.59M        1.59M   00:00:05      1:0
+  
+Maximum memory per node: 0.001672 GB (defined as MaxRSS*Ntasks/NNodes)
+CPU utilization: 0.0 %
+  

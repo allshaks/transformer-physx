@@ -168,7 +168,14 @@ class RosslerDataHandler(EmbeddingDataHandler):
 
         return testing_loader
 
+import os
+import gdown
+
 if __name__ == '__main__':
+    if not os.path.exists("./data/rossler_training.hdf5"):
+        gdown.download("https://drive.google.com/uc?export=download&id=1eEXYbiZEz5rlEBoF3erDA_sqNWP0AFtp", "./data/rossler_training.hdf5", quiet=False)
+    if not os.path.exists("./data/rossler_valid.hdf5"):
+        gdown.download("https://drive.google.com/uc?export=download&id=1LSCmkeM2Z6n8f5bzTkx50YuZvcL2WLsk", "./data/rossler_valid.hdf5", quiet=False)
 
     sys.argv = sys.argv + ["--exp_name", "rossler"]
     sys.argv = sys.argv + ["--training_h5_file", "./data/rossler_training.hdf5"]

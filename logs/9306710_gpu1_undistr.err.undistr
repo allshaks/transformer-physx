@@ -1,0 +1,28 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading pytorch/gpu-cuda-11.2/1.8.0
+  Loading requirement: cuda/11.2
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+  File "examples/cylinder/train_cylinder_enn.py", line 28
+    The content you've received indicates that your download attempt from Google Drive fetched an HTML page with a virus scan warning instead of the actual HDF5 file you intended to download. This typically happens with large files on Google Drive, as Google cannot scan files larger than a certain size (usually around 100MB) for viruses, and thus presents a warning page instead.
+              ^
+SyntaxError: invalid syntax
+srun: error: ravg1196: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=9306710.0

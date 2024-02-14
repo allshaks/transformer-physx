@@ -22,11 +22,18 @@ from trphysx.embedding.training import *
 
 logger = logging.getLogger(__name__)
 
+import os
+import gdown
+
 if __name__ == '__main__':
+    if not os.path.exists("./data/cylinder_training.hdf5"):
+        gdown.download("https://drive.google.com/uc?id=1i6ObgR4GsSMRBJ16rdMvexgU2egKYT3v", "./data/cylinder_training.hdf5", quiet=False)
+    if not os.path.exists("./data/cylinder_valid.hdf5"):
+        gdown.download("https://drive.google.com/uc?id=10I_uqaKgq82IxTKiRnaJ39Ajpe4e8Rws", "./data/cylinder_valid.hdf5", quiet=False)
 
     sys.argv = sys.argv + ["--exp_name", "cylinder"]
-    sys.argv = sys.argv + ["--training_h5_file", "/data/cylinder_training.hdf5"]
-    sys.argv = sys.argv + ["--eval_h5_file", "/data/cylinder_valid.hdf5"]
+    sys.argv = sys.argv + ["--training_h5_file", "./data/cylinder_training.hdf5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "./data/cylinder_valid.hdf5"]
     sys.argv = sys.argv + ["--batch_size", "64"]
     sys.argv = sys.argv + ["--block_size", "4"]
     sys.argv = sys.argv + ["--n_train", "27"]

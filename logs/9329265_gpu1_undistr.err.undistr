@@ -1,0 +1,472 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading pytorch/gpu-cuda-11.2/1.8.0
+  Loading requirement: cuda/11.2
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+02/09/2024 17:13:56 - WARNING - trphysx.config.args -   Selected init name not in built-in models. Be careful.
+02/09/2024 17:13:56 - INFO - root -   Using a single GPU for training.
+02/09/2024 17:14:35 - INFO - trphysx.embedding.embedding_model -   Loading embedding model from file: ./embedding_rossler300.pth
+02/09/2024 17:14:35 - INFO - trphysx.transformer.phys_transformer_gpt2 -   Number of parameters: 52960
+02/09/2024 17:14:35 - INFO - filelock -   Lock 22481514512208 acquired on ./data/cached2048_RosslerEmbedding_32_rossler_training.hdf5.lock
+02/09/2024 17:14:35 - INFO - trphysx.data_utils.dataset_phys -   Creating features from dataset file at ./data
+02/09/2024 17:15:03 - INFO - rossler_module.dataset_rossler -   Collected 256 time-series from hdf5 file. Total of 16128 time-series.
+02/09/2024 17:15:05 - INFO - trphysx.data_utils.dataset_phys -   Saving features into cached file ./data/cached2048_RosslerEmbedding_32_rossler_training.hdf5 [took 2.293 s]
+02/09/2024 17:15:05 - INFO - filelock -   Lock 22481514512208 released on ./data/cached2048_RosslerEmbedding_32_rossler_training.hdf5.lock
+02/09/2024 17:15:05 - INFO - filelock -   Lock 22481477333072 acquired on ./data/cached32_RosslerEmbedding_256_rossler_valid.hdf5.lock
+02/09/2024 17:15:05 - INFO - trphysx.data_utils.dataset_phys -   Creating features from dataset file at ./data
+02/09/2024 17:15:08 - INFO - rossler_module.dataset_rossler -   Collected 32 time-series from hdf5 file. Total of 32 time-series.
+02/09/2024 17:15:08 - INFO - trphysx.data_utils.dataset_phys -   Saving features into cached file ./data/cached32_RosslerEmbedding_256_rossler_valid.hdf5 [took 0.007 s]
+02/09/2024 17:15:08 - INFO - filelock -   Lock 22481477333072 released on ./data/cached32_RosslerEmbedding_256_rossler_valid.hdf5.lock
+02/09/2024 17:15:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00095
+02/09/2024 17:15:12 - INFO - trphysx.utils.trainer -   Epoch 1: Training loss 0.00711
+02/09/2024 17:15:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00095
+02/09/2024 17:15:12 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:15:15 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.06, State error: 35.31
+02/09/2024 17:15:15 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:15:19 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00089
+02/09/2024 17:15:19 - INFO - trphysx.utils.trainer -   Epoch 2: Training loss 0.00013
+02/09/2024 17:15:23 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00081
+02/09/2024 17:15:23 - INFO - trphysx.utils.trainer -   Epoch 3: Training loss 0.00007
+02/09/2024 17:15:26 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00072
+02/09/2024 17:15:26 - INFO - trphysx.utils.trainer -   Epoch 4: Training loss 0.00004
+02/09/2024 17:15:30 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00061
+02/09/2024 17:15:30 - INFO - trphysx.utils.trainer -   Epoch 5: Training loss 0.00003
+02/09/2024 17:15:34 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00050
+02/09/2024 17:15:34 - INFO - trphysx.utils.trainer -   Epoch 6: Training loss 0.00003
+02/09/2024 17:15:37 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00039
+02/09/2024 17:15:37 - INFO - trphysx.utils.trainer -   Epoch 7: Training loss 0.00002
+02/09/2024 17:15:41 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00028
+02/09/2024 17:15:41 - INFO - trphysx.utils.trainer -   Epoch 8: Training loss 0.00002
+02/09/2024 17:15:45 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00019
+02/09/2024 17:15:45 - INFO - trphysx.utils.trainer -   Epoch 9: Training loss 0.00002
+02/09/2024 17:15:48 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00011
+02/09/2024 17:15:48 - INFO - trphysx.utils.trainer -   Epoch 10: Training loss 0.00002
+02/09/2024 17:15:52 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00005
+02/09/2024 17:15:52 - INFO - trphysx.utils.trainer -   Epoch 11: Training loss 0.00002
+02/09/2024 17:15:56 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00001
+02/09/2024 17:15:56 - INFO - trphysx.utils.trainer -   Epoch 12: Training loss 0.00002
+02/09/2024 17:15:59 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:15:59 - INFO - trphysx.utils.trainer -   Epoch 13: Training loss 0.00002
+02/09/2024 17:16:03 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:16:03 - INFO - trphysx.utils.trainer -   Epoch 14: Training loss 0.00053
+02/09/2024 17:16:07 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:16:07 - INFO - trphysx.utils.trainer -   Epoch 15: Training loss 0.00002
+02/09/2024 17:16:11 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00097
+02/09/2024 17:16:11 - INFO - trphysx.utils.trainer -   Epoch 16: Training loss 0.00002
+02/09/2024 17:16:14 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00095
+02/09/2024 17:16:14 - INFO - trphysx.utils.trainer -   Epoch 17: Training loss 0.00001
+02/09/2024 17:16:18 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00092
+02/09/2024 17:16:18 - INFO - trphysx.utils.trainer -   Epoch 18: Training loss 0.00001
+02/09/2024 17:16:22 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00089
+02/09/2024 17:16:22 - INFO - trphysx.utils.trainer -   Epoch 19: Training loss 0.00001
+02/09/2024 17:16:25 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00085
+02/09/2024 17:16:25 - INFO - trphysx.utils.trainer -   Epoch 20: Training loss 0.00001
+02/09/2024 17:16:29 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00081
+02/09/2024 17:16:29 - INFO - trphysx.utils.trainer -   Epoch 21: Training loss 0.00001
+02/09/2024 17:16:33 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00077
+02/09/2024 17:16:33 - INFO - trphysx.utils.trainer -   Epoch 22: Training loss 0.00001
+02/09/2024 17:16:36 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00072
+02/09/2024 17:16:36 - INFO - trphysx.utils.trainer -   Epoch 23: Training loss 0.00001
+02/09/2024 17:16:40 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00067
+02/09/2024 17:16:40 - INFO - trphysx.utils.trainer -   Epoch 24: Training loss 0.00001
+02/09/2024 17:16:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00061
+02/09/2024 17:16:44 - INFO - trphysx.utils.trainer -   Epoch 25: Training loss 0.00001
+02/09/2024 17:16:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00061
+02/09/2024 17:16:44 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:16:47 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.02, State error: 23.91
+02/09/2024 17:16:47 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:16:50 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00056
+02/09/2024 17:16:50 - INFO - trphysx.utils.trainer -   Epoch 26: Training loss 0.00001
+02/09/2024 17:16:54 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00050
+02/09/2024 17:16:54 - INFO - trphysx.utils.trainer -   Epoch 27: Training loss 0.00001
+02/09/2024 17:16:58 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00044
+02/09/2024 17:16:58 - INFO - trphysx.utils.trainer -   Epoch 28: Training loss 0.00001
+02/09/2024 17:17:02 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00039
+02/09/2024 17:17:02 - INFO - trphysx.utils.trainer -   Epoch 29: Training loss 0.00001
+02/09/2024 17:17:05 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00034
+02/09/2024 17:17:05 - INFO - trphysx.utils.trainer -   Epoch 30: Training loss 0.00001
+02/09/2024 17:17:09 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00028
+02/09/2024 17:17:09 - INFO - trphysx.utils.trainer -   Epoch 31: Training loss 0.00001
+02/09/2024 17:17:13 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00023
+02/09/2024 17:17:13 - INFO - trphysx.utils.trainer -   Epoch 32: Training loss 0.00001
+02/09/2024 17:17:16 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00019
+02/09/2024 17:17:16 - INFO - trphysx.utils.trainer -   Epoch 33: Training loss 0.00001
+02/09/2024 17:17:20 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00015
+02/09/2024 17:17:20 - INFO - trphysx.utils.trainer -   Epoch 34: Training loss 0.00001
+02/09/2024 17:17:24 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00011
+02/09/2024 17:17:24 - INFO - trphysx.utils.trainer -   Epoch 35: Training loss 0.00001
+02/09/2024 17:17:27 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00008
+02/09/2024 17:17:27 - INFO - trphysx.utils.trainer -   Epoch 36: Training loss 0.00001
+02/09/2024 17:17:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00005
+02/09/2024 17:17:31 - INFO - trphysx.utils.trainer -   Epoch 37: Training loss 0.00001
+02/09/2024 17:17:35 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00003
+02/09/2024 17:17:35 - INFO - trphysx.utils.trainer -   Epoch 38: Training loss 0.00001
+02/09/2024 17:17:38 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00001
+02/09/2024 17:17:38 - INFO - trphysx.utils.trainer -   Epoch 39: Training loss 0.00001
+02/09/2024 17:17:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:17:42 - INFO - trphysx.utils.trainer -   Epoch 40: Training loss 0.00001
+02/09/2024 17:17:46 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:17:46 - INFO - trphysx.utils.trainer -   Epoch 41: Training loss 0.00001
+02/09/2024 17:17:50 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:17:50 - INFO - trphysx.utils.trainer -   Epoch 42: Training loss 0.00030
+02/09/2024 17:17:53 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:17:53 - INFO - trphysx.utils.trainer -   Epoch 43: Training loss 0.00001
+02/09/2024 17:17:57 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:17:57 - INFO - trphysx.utils.trainer -   Epoch 44: Training loss 0.00001
+02/09/2024 17:18:01 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:18:01 - INFO - trphysx.utils.trainer -   Epoch 45: Training loss 0.00001
+02/09/2024 17:18:04 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00098
+02/09/2024 17:18:04 - INFO - trphysx.utils.trainer -   Epoch 46: Training loss 0.00001
+02/09/2024 17:18:08 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00097
+02/09/2024 17:18:08 - INFO - trphysx.utils.trainer -   Epoch 47: Training loss 0.00001
+02/09/2024 17:18:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00096
+02/09/2024 17:18:12 - INFO - trphysx.utils.trainer -   Epoch 48: Training loss 0.00001
+02/09/2024 17:18:15 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00095
+02/09/2024 17:18:15 - INFO - trphysx.utils.trainer -   Epoch 49: Training loss 0.00001
+02/09/2024 17:18:19 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00094
+02/09/2024 17:18:19 - INFO - trphysx.utils.trainer -   Epoch 50: Training loss 0.00001
+02/09/2024 17:18:19 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00094
+02/09/2024 17:18:19 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:18:22 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.04, State error: 41.18
+02/09/2024 17:18:22 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:18:26 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00092
+02/09/2024 17:18:26 - INFO - trphysx.utils.trainer -   Epoch 51: Training loss 0.00001
+02/09/2024 17:18:29 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00091
+02/09/2024 17:18:29 - INFO - trphysx.utils.trainer -   Epoch 52: Training loss 0.00001
+02/09/2024 17:18:33 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00089
+02/09/2024 17:18:33 - INFO - trphysx.utils.trainer -   Epoch 53: Training loss 0.00001
+02/09/2024 17:18:37 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00087
+02/09/2024 17:18:37 - INFO - trphysx.utils.trainer -   Epoch 54: Training loss 0.00001
+02/09/2024 17:18:41 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00085
+02/09/2024 17:18:41 - INFO - trphysx.utils.trainer -   Epoch 55: Training loss 0.00001
+02/09/2024 17:18:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00083
+02/09/2024 17:18:44 - INFO - trphysx.utils.trainer -   Epoch 56: Training loss 0.00001
+02/09/2024 17:18:48 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00081
+02/09/2024 17:18:48 - INFO - trphysx.utils.trainer -   Epoch 57: Training loss 0.00001
+02/09/2024 17:18:52 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00079
+02/09/2024 17:18:52 - INFO - trphysx.utils.trainer -   Epoch 58: Training loss 0.00001
+02/09/2024 17:18:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00077
+02/09/2024 17:18:55 - INFO - trphysx.utils.trainer -   Epoch 59: Training loss 0.00001
+02/09/2024 17:18:59 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00074
+02/09/2024 17:18:59 - INFO - trphysx.utils.trainer -   Epoch 60: Training loss 0.00001
+02/09/2024 17:19:03 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00072
+02/09/2024 17:19:03 - INFO - trphysx.utils.trainer -   Epoch 61: Training loss 0.00001
+02/09/2024 17:19:06 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00069
+02/09/2024 17:19:06 - INFO - trphysx.utils.trainer -   Epoch 62: Training loss 0.00000
+02/09/2024 17:19:10 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00067
+02/09/2024 17:19:10 - INFO - trphysx.utils.trainer -   Epoch 63: Training loss 0.00001
+02/09/2024 17:19:14 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00064
+02/09/2024 17:19:14 - INFO - trphysx.utils.trainer -   Epoch 64: Training loss 0.00000
+02/09/2024 17:19:18 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00061
+02/09/2024 17:19:18 - INFO - trphysx.utils.trainer -   Epoch 65: Training loss 0.00000
+02/09/2024 17:19:21 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00058
+02/09/2024 17:19:21 - INFO - trphysx.utils.trainer -   Epoch 66: Training loss 0.00000
+02/09/2024 17:19:25 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00056
+02/09/2024 17:19:25 - INFO - trphysx.utils.trainer -   Epoch 67: Training loss 0.00000
+02/09/2024 17:19:29 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00053
+02/09/2024 17:19:29 - INFO - trphysx.utils.trainer -   Epoch 68: Training loss 0.00000
+02/09/2024 17:19:32 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00050
+02/09/2024 17:19:32 - INFO - trphysx.utils.trainer -   Epoch 69: Training loss 0.00000
+02/09/2024 17:19:36 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00047
+02/09/2024 17:19:36 - INFO - trphysx.utils.trainer -   Epoch 70: Training loss 0.00000
+02/09/2024 17:19:40 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00044
+02/09/2024 17:19:40 - INFO - trphysx.utils.trainer -   Epoch 71: Training loss 0.00000
+02/09/2024 17:19:43 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00042
+02/09/2024 17:19:43 - INFO - trphysx.utils.trainer -   Epoch 72: Training loss 0.00000
+02/09/2024 17:19:47 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00039
+02/09/2024 17:19:47 - INFO - trphysx.utils.trainer -   Epoch 73: Training loss 0.00000
+02/09/2024 17:19:51 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00036
+02/09/2024 17:19:51 - INFO - trphysx.utils.trainer -   Epoch 74: Training loss 0.00000
+02/09/2024 17:19:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00033
+02/09/2024 17:19:55 - INFO - trphysx.utils.trainer -   Epoch 75: Training loss 0.00000
+02/09/2024 17:19:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00033
+02/09/2024 17:19:55 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:19:58 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.01, State error: 6.88
+02/09/2024 17:19:58 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:20:01 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00031
+02/09/2024 17:20:01 - INFO - trphysx.utils.trainer -   Epoch 76: Training loss 0.00000
+02/09/2024 17:20:05 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00028
+02/09/2024 17:20:05 - INFO - trphysx.utils.trainer -   Epoch 77: Training loss 0.00000
+02/09/2024 17:20:09 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00026
+02/09/2024 17:20:09 - INFO - trphysx.utils.trainer -   Epoch 78: Training loss 0.00000
+02/09/2024 17:20:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00023
+02/09/2024 17:20:12 - INFO - trphysx.utils.trainer -   Epoch 79: Training loss 0.00000
+02/09/2024 17:20:16 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00021
+02/09/2024 17:20:16 - INFO - trphysx.utils.trainer -   Epoch 80: Training loss 0.00000
+02/09/2024 17:20:20 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00019
+02/09/2024 17:20:20 - INFO - trphysx.utils.trainer -   Epoch 81: Training loss 0.00000
+02/09/2024 17:20:23 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00017
+02/09/2024 17:20:23 - INFO - trphysx.utils.trainer -   Epoch 82: Training loss 0.00000
+02/09/2024 17:20:27 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00015
+02/09/2024 17:20:27 - INFO - trphysx.utils.trainer -   Epoch 83: Training loss 0.00000
+02/09/2024 17:20:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00013
+02/09/2024 17:20:31 - INFO - trphysx.utils.trainer -   Epoch 84: Training loss 0.00000
+02/09/2024 17:20:35 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00011
+02/09/2024 17:20:35 - INFO - trphysx.utils.trainer -   Epoch 85: Training loss 0.00000
+02/09/2024 17:20:38 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00009
+02/09/2024 17:20:38 - INFO - trphysx.utils.trainer -   Epoch 86: Training loss 0.00000
+02/09/2024 17:20:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00008
+02/09/2024 17:20:42 - INFO - trphysx.utils.trainer -   Epoch 87: Training loss 0.00000
+02/09/2024 17:20:46 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00006
+02/09/2024 17:20:46 - INFO - trphysx.utils.trainer -   Epoch 88: Training loss 0.00000
+02/09/2024 17:20:49 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00005
+02/09/2024 17:20:49 - INFO - trphysx.utils.trainer -   Epoch 89: Training loss 0.00000
+02/09/2024 17:20:53 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00004
+02/09/2024 17:20:53 - INFO - trphysx.utils.trainer -   Epoch 90: Training loss 0.00000
+02/09/2024 17:20:57 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00003
+02/09/2024 17:20:57 - INFO - trphysx.utils.trainer -   Epoch 91: Training loss 0.00000
+02/09/2024 17:21:00 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00002
+02/09/2024 17:21:00 - INFO - trphysx.utils.trainer -   Epoch 92: Training loss 0.00000
+02/09/2024 17:21:04 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00001
+02/09/2024 17:21:04 - INFO - trphysx.utils.trainer -   Epoch 93: Training loss 0.00000
+02/09/2024 17:21:08 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00001
+02/09/2024 17:21:08 - INFO - trphysx.utils.trainer -   Epoch 94: Training loss 0.00000
+02/09/2024 17:21:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:21:12 - INFO - trphysx.utils.trainer -   Epoch 95: Training loss 0.00000
+02/09/2024 17:21:15 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:21:15 - INFO - trphysx.utils.trainer -   Epoch 96: Training loss 0.00000
+02/09/2024 17:21:19 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00000
+02/09/2024 17:21:19 - INFO - trphysx.utils.trainer -   Epoch 97: Training loss 0.00000
+02/09/2024 17:21:23 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:23 - INFO - trphysx.utils.trainer -   Epoch 98: Training loss 0.00017
+02/09/2024 17:21:26 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:26 - INFO - trphysx.utils.trainer -   Epoch 99: Training loss 0.00000
+02/09/2024 17:21:30 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:30 - INFO - trphysx.utils.trainer -   Epoch 100: Training loss 0.00000
+02/09/2024 17:21:30 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:30 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:21:33 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.03, State error: 16.00
+02/09/2024 17:21:33 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:21:37 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:37 - INFO - trphysx.utils.trainer -   Epoch 101: Training loss 0.00000
+02/09/2024 17:21:40 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00100
+02/09/2024 17:21:40 - INFO - trphysx.utils.trainer -   Epoch 102: Training loss 0.00000
+02/09/2024 17:21:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:21:44 - INFO - trphysx.utils.trainer -   Epoch 103: Training loss 0.00000
+02/09/2024 17:21:48 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:21:48 - INFO - trphysx.utils.trainer -   Epoch 104: Training loss 0.00000
+02/09/2024 17:21:52 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00099
+02/09/2024 17:21:52 - INFO - trphysx.utils.trainer -   Epoch 105: Training loss 0.00001
+02/09/2024 17:21:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00098
+02/09/2024 17:21:55 - INFO - trphysx.utils.trainer -   Epoch 106: Training loss 0.00000
+02/09/2024 17:21:59 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00098
+02/09/2024 17:21:59 - INFO - trphysx.utils.trainer -   Epoch 107: Training loss 0.00000
+02/09/2024 17:22:03 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00098
+02/09/2024 17:22:03 - INFO - trphysx.utils.trainer -   Epoch 108: Training loss 0.00000
+02/09/2024 17:22:06 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00097
+02/09/2024 17:22:06 - INFO - trphysx.utils.trainer -   Epoch 109: Training loss 0.00000
+02/09/2024 17:22:10 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00097
+02/09/2024 17:22:10 - INFO - trphysx.utils.trainer -   Epoch 110: Training loss 0.00001
+02/09/2024 17:22:14 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00096
+02/09/2024 17:22:14 - INFO - trphysx.utils.trainer -   Epoch 111: Training loss 0.00001
+02/09/2024 17:22:18 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00096
+02/09/2024 17:22:18 - INFO - trphysx.utils.trainer -   Epoch 112: Training loss 0.00000
+02/09/2024 17:22:21 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00095
+02/09/2024 17:22:21 - INFO - trphysx.utils.trainer -   Epoch 113: Training loss 0.00000
+02/09/2024 17:22:25 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00094
+02/09/2024 17:22:25 - INFO - trphysx.utils.trainer -   Epoch 114: Training loss 0.00001
+02/09/2024 17:22:29 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00094
+02/09/2024 17:22:29 - INFO - trphysx.utils.trainer -   Epoch 115: Training loss 0.00000
+02/09/2024 17:22:32 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00093
+02/09/2024 17:22:32 - INFO - trphysx.utils.trainer -   Epoch 116: Training loss 0.00000
+02/09/2024 17:22:36 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00092
+02/09/2024 17:22:36 - INFO - trphysx.utils.trainer -   Epoch 117: Training loss 0.00000
+02/09/2024 17:22:40 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00092
+02/09/2024 17:22:40 - INFO - trphysx.utils.trainer -   Epoch 118: Training loss 0.00001
+02/09/2024 17:22:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00091
+02/09/2024 17:22:44 - INFO - trphysx.utils.trainer -   Epoch 119: Training loss 0.00000
+02/09/2024 17:22:47 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00090
+02/09/2024 17:22:47 - INFO - trphysx.utils.trainer -   Epoch 120: Training loss 0.00001
+02/09/2024 17:22:51 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00089
+02/09/2024 17:22:51 - INFO - trphysx.utils.trainer -   Epoch 121: Training loss 0.00000
+02/09/2024 17:22:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00088
+02/09/2024 17:22:55 - INFO - trphysx.utils.trainer -   Epoch 122: Training loss 0.00000
+02/09/2024 17:22:58 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00087
+02/09/2024 17:22:58 - INFO - trphysx.utils.trainer -   Epoch 123: Training loss 0.00001
+02/09/2024 17:23:02 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00086
+02/09/2024 17:23:02 - INFO - trphysx.utils.trainer -   Epoch 124: Training loss 0.00000
+02/09/2024 17:23:06 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00085
+02/09/2024 17:23:06 - INFO - trphysx.utils.trainer -   Epoch 125: Training loss 0.00001
+02/09/2024 17:23:06 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00085
+02/09/2024 17:23:06 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:23:09 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.06, State error: 62.02
+02/09/2024 17:23:09 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:23:13 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00084
+02/09/2024 17:23:13 - INFO - trphysx.utils.trainer -   Epoch 126: Training loss 0.00000
+02/09/2024 17:23:16 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00083
+02/09/2024 17:23:16 - INFO - trphysx.utils.trainer -   Epoch 127: Training loss 0.00000
+02/09/2024 17:23:20 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00082
+02/09/2024 17:23:20 - INFO - trphysx.utils.trainer -   Epoch 128: Training loss 0.00000
+02/09/2024 17:23:24 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00081
+02/09/2024 17:23:24 - INFO - trphysx.utils.trainer -   Epoch 129: Training loss 0.00000
+02/09/2024 17:23:27 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00080
+02/09/2024 17:23:27 - INFO - trphysx.utils.trainer -   Epoch 130: Training loss 0.00000
+02/09/2024 17:23:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00079
+02/09/2024 17:23:31 - INFO - trphysx.utils.trainer -   Epoch 131: Training loss 0.00000
+02/09/2024 17:23:35 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00078
+02/09/2024 17:23:35 - INFO - trphysx.utils.trainer -   Epoch 132: Training loss 0.00000
+02/09/2024 17:23:38 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00077
+02/09/2024 17:23:38 - INFO - trphysx.utils.trainer -   Epoch 133: Training loss 0.00000
+02/09/2024 17:23:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00075
+02/09/2024 17:23:42 - INFO - trphysx.utils.trainer -   Epoch 134: Training loss 0.00000
+02/09/2024 17:23:46 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00074
+02/09/2024 17:23:46 - INFO - trphysx.utils.trainer -   Epoch 135: Training loss 0.00000
+02/09/2024 17:23:50 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00073
+02/09/2024 17:23:50 - INFO - trphysx.utils.trainer -   Epoch 136: Training loss 0.00001
+02/09/2024 17:23:53 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00072
+02/09/2024 17:23:53 - INFO - trphysx.utils.trainer -   Epoch 137: Training loss 0.00000
+02/09/2024 17:23:57 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00070
+02/09/2024 17:23:57 - INFO - trphysx.utils.trainer -   Epoch 138: Training loss 0.00000
+02/09/2024 17:24:01 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00069
+02/09/2024 17:24:01 - INFO - trphysx.utils.trainer -   Epoch 139: Training loss 0.00000
+02/09/2024 17:24:05 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00068
+02/09/2024 17:24:05 - INFO - trphysx.utils.trainer -   Epoch 140: Training loss 0.00000
+02/09/2024 17:24:08 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00067
+02/09/2024 17:24:08 - INFO - trphysx.utils.trainer -   Epoch 141: Training loss 0.00000
+02/09/2024 17:24:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00065
+02/09/2024 17:24:12 - INFO - trphysx.utils.trainer -   Epoch 142: Training loss 0.00000
+02/09/2024 17:24:16 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00064
+02/09/2024 17:24:16 - INFO - trphysx.utils.trainer -   Epoch 143: Training loss 0.00000
+02/09/2024 17:24:19 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00062
+02/09/2024 17:24:19 - INFO - trphysx.utils.trainer -   Epoch 144: Training loss 0.00000
+02/09/2024 17:24:23 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00061
+02/09/2024 17:24:23 - INFO - trphysx.utils.trainer -   Epoch 145: Training loss 0.00000
+02/09/2024 17:24:27 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00060
+02/09/2024 17:24:27 - INFO - trphysx.utils.trainer -   Epoch 146: Training loss 0.00000
+02/09/2024 17:24:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00058
+02/09/2024 17:24:31 - INFO - trphysx.utils.trainer -   Epoch 147: Training loss 0.00000
+02/09/2024 17:24:34 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00057
+02/09/2024 17:24:34 - INFO - trphysx.utils.trainer -   Epoch 148: Training loss 0.00000
+02/09/2024 17:24:38 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00056
+02/09/2024 17:24:38 - INFO - trphysx.utils.trainer -   Epoch 149: Training loss 0.00000
+02/09/2024 17:24:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00054
+02/09/2024 17:24:42 - INFO - trphysx.utils.trainer -   Epoch 150: Training loss 0.00000
+02/09/2024 17:24:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00054
+02/09/2024 17:24:42 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:24:45 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.02, State error: 26.86
+02/09/2024 17:24:45 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:24:48 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00053
+02/09/2024 17:24:48 - INFO - trphysx.utils.trainer -   Epoch 151: Training loss 0.00000
+02/09/2024 17:24:52 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00051
+02/09/2024 17:24:52 - INFO - trphysx.utils.trainer -   Epoch 152: Training loss 0.00000
+02/09/2024 17:24:56 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00050
+02/09/2024 17:24:56 - INFO - trphysx.utils.trainer -   Epoch 153: Training loss 0.00000
+02/09/2024 17:24:59 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00049
+02/09/2024 17:24:59 - INFO - trphysx.utils.trainer -   Epoch 154: Training loss 0.00000
+02/09/2024 17:25:03 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00047
+02/09/2024 17:25:03 - INFO - trphysx.utils.trainer -   Epoch 155: Training loss 0.00000
+02/09/2024 17:25:07 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00046
+02/09/2024 17:25:07 - INFO - trphysx.utils.trainer -   Epoch 156: Training loss 0.00000
+02/09/2024 17:25:11 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00044
+02/09/2024 17:25:11 - INFO - trphysx.utils.trainer -   Epoch 157: Training loss 0.00000
+02/09/2024 17:25:14 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00043
+02/09/2024 17:25:14 - INFO - trphysx.utils.trainer -   Epoch 158: Training loss 0.00000
+02/09/2024 17:25:18 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00042
+02/09/2024 17:25:18 - INFO - trphysx.utils.trainer -   Epoch 159: Training loss 0.00000
+02/09/2024 17:25:22 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00040
+02/09/2024 17:25:22 - INFO - trphysx.utils.trainer -   Epoch 160: Training loss 0.00000
+02/09/2024 17:25:25 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00039
+02/09/2024 17:25:25 - INFO - trphysx.utils.trainer -   Epoch 161: Training loss 0.00000
+02/09/2024 17:25:29 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00038
+02/09/2024 17:25:29 - INFO - trphysx.utils.trainer -   Epoch 162: Training loss 0.00000
+02/09/2024 17:25:33 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00036
+02/09/2024 17:25:33 - INFO - trphysx.utils.trainer -   Epoch 163: Training loss 0.00000
+02/09/2024 17:25:37 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00035
+02/09/2024 17:25:37 - INFO - trphysx.utils.trainer -   Epoch 164: Training loss 0.00000
+02/09/2024 17:25:40 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00033
+02/09/2024 17:25:40 - INFO - trphysx.utils.trainer -   Epoch 165: Training loss 0.00000
+02/09/2024 17:25:44 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00032
+02/09/2024 17:25:44 - INFO - trphysx.utils.trainer -   Epoch 166: Training loss 0.00000
+02/09/2024 17:25:48 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00031
+02/09/2024 17:25:48 - INFO - trphysx.utils.trainer -   Epoch 167: Training loss 0.00000
+02/09/2024 17:25:51 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00030
+02/09/2024 17:25:51 - INFO - trphysx.utils.trainer -   Epoch 168: Training loss 0.00000
+02/09/2024 17:25:55 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00028
+02/09/2024 17:25:55 - INFO - trphysx.utils.trainer -   Epoch 169: Training loss 0.00000
+02/09/2024 17:25:59 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00027
+02/09/2024 17:25:59 - INFO - trphysx.utils.trainer -   Epoch 170: Training loss 0.00000
+02/09/2024 17:26:02 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00026
+02/09/2024 17:26:02 - INFO - trphysx.utils.trainer -   Epoch 171: Training loss 0.00000
+02/09/2024 17:26:06 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00025
+02/09/2024 17:26:06 - INFO - trphysx.utils.trainer -   Epoch 172: Training loss 0.00000
+02/09/2024 17:26:10 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00023
+02/09/2024 17:26:10 - INFO - trphysx.utils.trainer -   Epoch 173: Training loss 0.00000
+02/09/2024 17:26:14 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00022
+02/09/2024 17:26:14 - INFO - trphysx.utils.trainer -   Epoch 174: Training loss 0.00000
+02/09/2024 17:26:17 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00021
+02/09/2024 17:26:17 - INFO - trphysx.utils.trainer -   Epoch 175: Training loss 0.00000
+02/09/2024 17:26:17 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00021
+02/09/2024 17:26:17 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:26:20 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.02, State error: 22.04
+02/09/2024 17:26:20 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.
+02/09/2024 17:26:24 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00020
+02/09/2024 17:26:24 - INFO - trphysx.utils.trainer -   Epoch 176: Training loss 0.00000
+02/09/2024 17:26:28 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00019
+02/09/2024 17:26:28 - INFO - trphysx.utils.trainer -   Epoch 177: Training loss 0.00000
+02/09/2024 17:26:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00018
+02/09/2024 17:26:31 - INFO - trphysx.utils.trainer -   Epoch 178: Training loss 0.00000
+02/09/2024 17:26:35 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00017
+02/09/2024 17:26:35 - INFO - trphysx.utils.trainer -   Epoch 179: Training loss 0.00000
+02/09/2024 17:26:39 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00016
+02/09/2024 17:26:39 - INFO - trphysx.utils.trainer -   Epoch 180: Training loss 0.00000
+02/09/2024 17:26:43 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00015
+02/09/2024 17:26:43 - INFO - trphysx.utils.trainer -   Epoch 181: Training loss 0.00000
+02/09/2024 17:26:46 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00014
+02/09/2024 17:26:46 - INFO - trphysx.utils.trainer -   Epoch 182: Training loss 0.00000
+02/09/2024 17:26:50 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00013
+02/09/2024 17:26:50 - INFO - trphysx.utils.trainer -   Epoch 183: Training loss 0.00000
+02/09/2024 17:26:54 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00012
+02/09/2024 17:26:54 - INFO - trphysx.utils.trainer -   Epoch 184: Training loss 0.00000
+02/09/2024 17:26:57 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00011
+02/09/2024 17:26:57 - INFO - trphysx.utils.trainer -   Epoch 185: Training loss 0.00000
+02/09/2024 17:27:01 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00010
+02/09/2024 17:27:01 - INFO - trphysx.utils.trainer -   Epoch 186: Training loss 0.00000
+02/09/2024 17:27:05 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00009
+02/09/2024 17:27:05 - INFO - trphysx.utils.trainer -   Epoch 187: Training loss 0.00000
+02/09/2024 17:27:09 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00008
+02/09/2024 17:27:09 - INFO - trphysx.utils.trainer -   Epoch 188: Training loss 0.00000
+02/09/2024 17:27:12 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00008
+02/09/2024 17:27:12 - INFO - trphysx.utils.trainer -   Epoch 189: Training loss 0.00000
+02/09/2024 17:27:16 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00007
+02/09/2024 17:27:16 - INFO - trphysx.utils.trainer -   Epoch 190: Training loss 0.00000
+02/09/2024 17:27:20 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00006
+02/09/2024 17:27:20 - INFO - trphysx.utils.trainer -   Epoch 191: Training loss 0.00000
+02/09/2024 17:27:24 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00006
+02/09/2024 17:27:24 - INFO - trphysx.utils.trainer -   Epoch 192: Training loss 0.00000
+02/09/2024 17:27:27 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00005
+02/09/2024 17:27:27 - INFO - trphysx.utils.trainer -   Epoch 193: Training loss 0.00000
+02/09/2024 17:27:31 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00004
+02/09/2024 17:27:31 - INFO - trphysx.utils.trainer -   Epoch 194: Training loss 0.00000
+02/09/2024 17:27:35 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00004
+02/09/2024 17:27:35 - INFO - trphysx.utils.trainer -   Epoch 195: Training loss 0.00000
+02/09/2024 17:27:38 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00003
+02/09/2024 17:27:38 - INFO - trphysx.utils.trainer -   Epoch 196: Training loss 0.00000
+02/09/2024 17:27:42 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00003
+02/09/2024 17:27:42 - INFO - trphysx.utils.trainer -   Epoch 197: Training loss 0.00000
+02/09/2024 17:27:46 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00002
+02/09/2024 17:27:46 - INFO - trphysx.utils.trainer -   Epoch 198: Training loss 0.00000
+02/09/2024 17:27:50 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00002
+02/09/2024 17:27:50 - INFO - trphysx.utils.trainer -   Epoch 199: Training loss 0.00000
+02/09/2024 17:27:53 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00002
+02/09/2024 17:27:53 - INFO - trphysx.utils.trainer -   Epoch 200: Training loss 0.00000
+02/09/2024 17:27:53 - INFO - trphysx.utils.trainer -   Current Learning rate: 0.00002
+02/09/2024 17:27:53 - INFO - trphysx.utils.trainer -   Evaluating...
+02/09/2024 17:27:56 - INFO - trphysx.utils.trainer -   Eval embedding error: 0.11, State error: 203.08
+02/09/2024 17:27:56 - INFO - trphysx.utils.trainer -   Checkpointing model, optimizer and scheduler.

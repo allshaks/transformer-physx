@@ -1,0 +1,26 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading pytorch/gpu-cuda-11.2/1.8.0
+  Loading requirement: cuda/11.2
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Traceback (most recent call last):
+  File "examples/lorenz/predict_lorenz.py", line 14, in <module>
+    from trphysx.data_utils.data_utils import EvalDataCollator
+ImportError: cannot import name 'EvalDataCollator' from 'trphysx.data_utils.data_utils' (/raven/u/sashb/projects/github_repos/transformer-physx/trphysx/data_utils/data_utils.py)
+srun: error: ravg1197: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=9278342.0

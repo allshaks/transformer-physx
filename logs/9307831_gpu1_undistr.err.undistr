@@ -1,0 +1,410 @@
+
+Please note that in the future you will need to specify an explicit version
+also when loading the 'anaconda' module, just as is already required for the
+compiler and MPI modules. In case you need to load the anaconda module for your
+jobs, please adapt your submit scripts already now. Use
+
+  module load anaconda/3/2021.11
+
+to load version 3/2021.11 explicitly, for example.
+
+
+Loading pytorch/gpu-cuda-11.2/1.8.0
+  Loading requirement: cuda/11.2
+
+Loading h5py-mpi/2.10
+  Loading requirement: mpi4py/3.0.3
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Downloading...
+From (original): https://drive.google.com/uc?id=1i6ObgR4GsSMRBJ16rdMvexgU2egKYT3v
+From (redirected): https://drive.google.com/uc?id=1i6ObgR4GsSMRBJ16rdMvexgU2egKYT3v&confirm=t&uuid=9b8107f0-1833-4cd1-9137-11e705f152d6
+To: /raven/u/sashb/projects/github_repos/transformer-physx/data/cylinder_training.hdf5
+  0%|          | 0.00/1.29G [00:00<?, ?B/s]  0%|          | 4.72M/1.29G [00:00<01:24, 15.1MB/s]  1%|          | 12.1M/1.29G [00:00<01:12, 17.7MB/s]  1%|▏         | 18.9M/1.29G [00:00<01:03, 20.0MB/s]  2%|▏         | 25.7M/1.29G [00:01<01:04, 19.6MB/s]  3%|▎         | 34.1M/1.29G [00:01<00:57, 21.8MB/s]  3%|▎         | 42.5M/1.29G [00:01<00:51, 24.2MB/s]  4%|▍         | 50.9M/1.29G [00:01<00:48, 25.5MB/s]  5%|▍         | 59.2M/1.29G [00:02<00:44, 27.7MB/s]  5%|▌         | 67.6M/1.29G [00:02<00:41, 29.3MB/s]  6%|▌         | 76.0M/1.29G [00:02<00:41, 29.5MB/s]  7%|▋         | 84.4M/1.29G [00:03<00:40, 30.0MB/s]  7%|▋         | 92.8M/1.29G [00:03<00:38, 31.3MB/s]  8%|▊         | 101M/1.29G [00:03<00:38, 30.7MB/s]   8%|▊         | 110M/1.29G [00:03<00:39, 29.6MB/s]  9%|▉         | 118M/1.29G [00:04<00:37, 31.3MB/s] 10%|▉         | 126M/1.29G [00:04<00:35, 32.8MB/s] 10%|█         | 135M/1.29G [00:04<00:35, 32.4MB/s] 11%|█         | 143M/1.29G [00:04<00:34, 33.1MB/s] 12%|█▏        | 152M/1.29G [00:05<00:40, 28.1MB/s] 13%|█▎        | 168M/1.29G [00:05<00:36, 30.9MB/s] 14%|█▍        | 185M/1.29G [00:05<00:30, 36.3MB/s] 16%|█▌        | 202M/1.29G [00:06<00:28, 38.6MB/s] 17%|█▋        | 217M/1.29G [00:06<00:21, 49.7MB/s] 17%|█▋        | 225M/1.29G [00:06<00:20, 51.4MB/s] 18%|█▊        | 232M/1.29G [00:06<00:19, 54.9MB/s] 19%|█▊        | 240M/1.29G [00:06<00:19, 54.5MB/s] 20%|█▉        | 252M/1.29G [00:06<00:15, 65.1MB/s] 20%|██        | 260M/1.29G [00:07<00:16, 62.7MB/s] 21%|██        | 269M/1.29G [00:07<00:17, 59.8MB/s] 22%|██▏       | 277M/1.29G [00:07<00:16, 61.1MB/s] 22%|██▏       | 287M/1.29G [00:07<00:14, 68.3MB/s] 23%|██▎       | 295M/1.29G [00:07<00:14, 69.1MB/s] 23%|██▎       | 303M/1.29G [00:07<00:14, 69.2MB/s] 24%|██▍       | 311M/1.29G [00:07<00:13, 71.0MB/s] 25%|██▍       | 319M/1.29G [00:07<00:13, 70.5MB/s] 26%|██▌       | 333M/1.29G [00:07<00:11, 82.9MB/s] 27%|██▋       | 343M/1.29G [00:08<00:12, 73.4MB/s] 27%|██▋       | 351M/1.29G [00:08<00:14, 66.6MB/s] 28%|██▊       | 361M/1.29G [00:08<00:15, 60.2MB/s] 29%|██▉       | 378M/1.29G [00:08<00:15, 58.6MB/s] 31%|███       | 399M/1.29G [00:08<00:11, 74.6MB/s] 32%|███▏      | 410M/1.29G [00:09<00:16, 54.9MB/s] 33%|███▎      | 428M/1.29G [00:09<00:14, 59.1MB/s] 34%|███▍      | 439M/1.29G [00:09<00:12, 67.8MB/s] 35%|███▌      | 454M/1.29G [00:09<00:11, 74.6MB/s] 36%|███▌      | 466M/1.29G [00:09<00:09, 83.8MB/s] 37%|███▋      | 476M/1.29G [00:10<00:12, 63.9MB/s] 38%|███▊      | 494M/1.29G [00:10<00:10, 79.4MB/s] 39%|███▉      | 505M/1.29G [00:10<00:14, 54.4MB/s] 40%|████      | 521M/1.29G [00:10<00:11, 67.2MB/s] 41%|████      | 532M/1.29G [00:10<00:11, 64.4MB/s] 42%|████▏     | 541M/1.29G [00:10<00:11, 64.3MB/s] 43%|████▎     | 554M/1.29G [00:11<00:10, 72.6MB/s] 44%|████▍     | 567M/1.29G [00:11<00:08, 83.0MB/s] 45%|████▍     | 577M/1.29G [00:11<00:09, 76.9MB/s] 46%|████▌     | 588M/1.29G [00:11<00:09, 74.8MB/s] 46%|████▋     | 597M/1.29G [00:11<00:08, 77.8MB/s] 48%|████▊     | 613M/1.29G [00:11<00:08, 80.3MB/s] 48%|████▊     | 622M/1.29G [00:11<00:08, 76.9MB/s] 49%|████▉     | 638M/1.29G [00:12<00:08, 81.4MB/s] 50%|█████     | 647M/1.29G [00:12<00:08, 77.5MB/s] 51%|█████▏    | 663M/1.29G [00:12<00:07, 83.7MB/s] 52%|█████▏    | 672M/1.29G [00:12<00:07, 78.3MB/s] 53%|█████▎    | 688M/1.29G [00:12<00:06, 89.6MB/s] 54%|█████▍    | 698M/1.29G [00:12<00:07, 74.9MB/s] 56%|█████▌    | 719M/1.29G [00:12<00:06, 91.9MB/s] 57%|█████▋    | 731M/1.29G [00:13<00:07, 78.0MB/s] 58%|█████▊    | 742M/1.29G [00:13<00:07, 76.8MB/s] 58%|█████▊    | 751M/1.29G [00:13<00:07, 71.8MB/s] 59%|█████▉    | 764M/1.29G [00:13<00:08, 62.5MB/s] 61%|██████    | 781M/1.29G [00:13<00:07, 68.8MB/s] 61%|██████    | 789M/1.29G [00:14<00:10, 49.9MB/s] 63%|██████▎   | 808M/1.29G [00:14<00:07, 63.9MB/s] 63%|██████▎   | 818M/1.29G [00:14<00:07, 66.8MB/s] 64%|██████▍   | 828M/1.29G [00:14<00:08, 52.6MB/s] 65%|██████▌   | 839M/1.29G [00:14<00:07, 59.8MB/s] 66%|██████▌   | 854M/1.29G [00:14<00:05, 72.7MB/s] 67%|██████▋   | 867M/1.29G [00:15<00:05, 83.7MB/s] 68%|██████▊   | 878M/1.29G [00:15<00:04, 88.1MB/s] 69%|██████▉   | 889M/1.29G [00:15<00:04, 90.9MB/s] 70%|██████▉   | 900M/1.29G [00:15<00:05, 75.0MB/s] 71%|███████   | 919M/1.29G [00:15<00:04, 91.7MB/s] 72%|███████▏  | 931M/1.29G [00:15<00:04, 84.9MB/s] 73%|███████▎  | 946M/1.29G [00:15<00:03, 97.2MB/s] 74%|███████▍  | 958M/1.29G [00:15<00:03, 86.5MB/s] 75%|███████▌  | 974M/1.29G [00:16<00:04, 68.4MB/s] 77%|███████▋  | 994M/1.29G [00:16<00:03, 85.4MB/s] 78%|███████▊  | 1.01G/1.29G [00:16<00:03, 81.8MB/s] 79%|███████▉  | 1.02G/1.29G [00:16<00:04, 61.8MB/s] 80%|████████  | 1.03G/1.29G [00:17<00:04, 62.1MB/s] 81%|████████▏ | 1.05G/1.29G [00:17<00:03, 71.2MB/s] 82%|████████▏ | 1.06G/1.29G [00:17<00:03, 75.1MB/s] 83%|████████▎ | 1.07G/1.29G [00:17<00:02, 76.5MB/s] 85%|████████▍ | 1.09G/1.29G [00:17<00:02, 86.9MB/s] 85%|████████▌ | 1.10G/1.29G [00:17<00:02, 77.1MB/s] 87%|████████▋ | 1.12G/1.29G [00:18<00:02, 80.5MB/s] 87%|████████▋ | 1.13G/1.29G [00:18<00:02, 75.0MB/s] 88%|████████▊ | 1.14G/1.29G [00:18<00:01, 79.4MB/s] 89%|████████▉ | 1.15G/1.29G [00:18<00:01, 88.7MB/s] 90%|█████████ | 1.17G/1.29G [00:18<00:01, 84.3MB/s] 91%|█████████▏| 1.18G/1.29G [00:18<00:01, 93.3MB/s] 92%|█████████▏| 1.19G/1.29G [00:18<00:01, 91.0MB/s] 93%|█████████▎| 1.20G/1.29G [00:18<00:00, 91.0MB/s] 94%|█████████▍| 1.21G/1.29G [00:19<00:00, 82.7MB/s] 95%|█████████▍| 1.22G/1.29G [00:19<00:00, 72.1MB/s] 96%|█████████▌| 1.24G/1.29G [00:19<00:00, 84.5MB/s] 97%|█████████▋| 1.25G/1.29G [00:19<00:00, 63.6MB/s] 98%|█████████▊| 1.27G/1.29G [00:19<00:00, 80.3MB/s] 99%|█████████▉| 1.28G/1.29G [00:19<00:00, 69.7MB/s]100%|██████████| 1.29G/1.29G [00:20<00:00, 64.5MB/s]
+Downloading...
+From (original): https://drive.google.com/uc?id=10I_uqaKgq82IxTKiRnaJ39Ajpe4e8Rws
+From (redirected): https://drive.google.com/uc?id=10I_uqaKgq82IxTKiRnaJ39Ajpe4e8Rws&confirm=t&uuid=0448088c-906d-4a66-ac9a-7199df2a7fb5
+To: /raven/u/sashb/projects/github_repos/transformer-physx/data/cylinder_valid.hdf5
+  0%|          | 0.00/342M [00:00<?, ?B/s]  1%|▏         | 4.72M/342M [00:00<00:19, 17.0MB/s]  3%|▎         | 8.91M/342M [00:00<00:22, 14.9MB/s]  5%|▌         | 17.3M/342M [00:01<00:19, 16.4MB/s]  8%|▊         | 25.7M/342M [00:01<00:17, 18.5MB/s] 10%|▉         | 34.1M/342M [00:01<00:14, 21.1MB/s] 12%|█▏        | 42.5M/342M [00:01<00:12, 23.3MB/s] 15%|█▍        | 50.9M/342M [00:02<00:11, 24.9MB/s] 17%|█▋        | 59.2M/342M [00:02<00:10, 26.1MB/s] 20%|█▉        | 67.6M/342M [00:02<00:09, 28.0MB/s] 22%|██▏       | 76.0M/342M [00:03<00:09, 27.0MB/s] 25%|██▍       | 84.4M/342M [00:03<00:09, 28.1MB/s] 27%|██▋       | 92.8M/342M [00:03<00:08, 29.5MB/s] 30%|██▉       | 101M/342M [00:03<00:08, 29.1MB/s]  32%|███▏      | 110M/342M [00:04<00:07, 30.0MB/s] 34%|███▍      | 118M/342M [00:04<00:07, 30.0MB/s] 37%|███▋      | 126M/342M [00:04<00:07, 29.8MB/s] 39%|███▉      | 135M/342M [00:04<00:07, 29.6MB/s] 44%|████▍     | 152M/342M [00:05<00:05, 33.4MB/s] 49%|████▉     | 168M/342M [00:05<00:04, 37.6MB/s] 54%|█████▎    | 184M/342M [00:05<00:03, 48.5MB/s] 56%|█████▌    | 191M/342M [00:05<00:03, 42.9MB/s] 58%|█████▊    | 198M/342M [00:06<00:03, 46.7MB/s] 60%|█████▉    | 204M/342M [00:06<00:04, 33.3MB/s] 64%|██████▍   | 219M/342M [00:06<00:03, 35.3MB/s] 69%|██████▉   | 235M/342M [00:06<00:02, 41.4MB/s] 71%|███████▏  | 244M/342M [00:07<00:02, 38.5MB/s] 74%|███████▎  | 252M/342M [00:07<00:02, 43.1MB/s] 76%|███████▌  | 261M/342M [00:07<00:01, 42.7MB/s] 79%|███████▊  | 269M/342M [00:07<00:01, 48.3MB/s] 81%|████████  | 277M/342M [00:08<00:01, 37.7MB/s] 86%|████████▌ | 294M/342M [00:08<00:01, 41.2MB/s] 88%|████████▊ | 303M/342M [00:08<00:00, 47.1MB/s] 91%|█████████ | 311M/342M [00:08<00:00, 36.0MB/s] 96%|█████████▌| 328M/342M [00:09<00:00, 41.5MB/s] 99%|█████████▉| 340M/342M [00:09<00:00, 51.8MB/s]100%|██████████| 342M/342M [00:09<00:00, 37.1MB/s]
+02/08/2024 18:54:50 - INFO - __main__ -   Torch device: cuda:0
+02/08/2024 18:54:50 - INFO - root -   Creating training loader
+02/08/2024 18:55:22 - INFO - root -   Creating testing loader
+02/08/2024 18:55:30 - WARNING - root -   Lower batch-size to 6
+02/08/2024 18:55:30 - INFO - trphysx.embedding.embedding_cylinder -   Number of embedding parameters: 262535
+02/08/2024 18:56:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 1: Training loss 1540.967, Lr 0.00100
+02/08/2024 18:56:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 1: Test loss: 0.03
+02/08/2024 18:56:16 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 2: Training loss 601.750, Lr 0.00099
+02/08/2024 18:56:18 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 3: Training loss 225.023, Lr 0.00099
+02/08/2024 18:56:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 4: Training loss 97.327, Lr 0.00099
+02/08/2024 18:56:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 5: Training loss 54.443, Lr 0.00098
+02/08/2024 18:56:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 5: Test loss: 0.01
+02/08/2024 18:56:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 6: Training loss 38.753, Lr 0.00098
+02/08/2024 18:56:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 7: Training loss 33.443, Lr 0.00097
+02/08/2024 18:56:26 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 8: Training loss 29.546, Lr 0.00097
+02/08/2024 18:56:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 9: Training loss 26.688, Lr 0.00096
+02/08/2024 18:56:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 10: Training loss 26.583, Lr 0.00096
+02/08/2024 18:56:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 10: Test loss: 0.01
+02/08/2024 18:56:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 11: Training loss 25.223, Lr 0.00095
+02/08/2024 18:56:32 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 12: Training loss 22.772, Lr 0.00095
+02/08/2024 18:56:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 13: Training loss 21.122, Lr 0.00094
+02/08/2024 18:56:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 14: Training loss 20.306, Lr 0.00094
+02/08/2024 18:56:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 15: Training loss 18.978, Lr 0.00093
+02/08/2024 18:56:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 15: Test loss: 0.00
+02/08/2024 18:56:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 16: Training loss 18.163, Lr 0.00093
+02/08/2024 18:56:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 17: Training loss 17.360, Lr 0.00092
+02/08/2024 18:56:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 18: Training loss 16.656, Lr 0.00092
+02/08/2024 18:56:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 19: Training loss 16.036, Lr 0.00091
+02/08/2024 18:56:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 20: Training loss 15.632, Lr 0.00091
+02/08/2024 18:56:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 20: Test loss: 0.00
+02/08/2024 18:56:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 21: Training loss 15.161, Lr 0.00090
+02/08/2024 18:56:47 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 22: Training loss 15.059, Lr 0.00090
+02/08/2024 18:56:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 23: Training loss 14.421, Lr 0.00090
+02/08/2024 18:56:50 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 24: Training loss 13.918, Lr 0.00089
+02/08/2024 18:56:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 25: Training loss 13.577, Lr 0.00089
+02/08/2024 18:56:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 25: Test loss: 0.00
+02/08/2024 18:56:53 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 18:56:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 26: Training loss 13.235, Lr 0.00088
+02/08/2024 18:56:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 27: Training loss 12.987, Lr 0.00088
+02/08/2024 18:56:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 28: Training loss 12.954, Lr 0.00087
+02/08/2024 18:57:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 29: Training loss 12.445, Lr 0.00087
+02/08/2024 18:57:01 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 30: Training loss 12.257, Lr 0.00086
+02/08/2024 18:57:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 30: Test loss: 0.00
+02/08/2024 18:57:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 31: Training loss 12.514, Lr 0.00086
+02/08/2024 18:57:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 32: Training loss 12.455, Lr 0.00086
+02/08/2024 18:57:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 33: Training loss 12.105, Lr 0.00085
+02/08/2024 18:57:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 34: Training loss 11.764, Lr 0.00085
+02/08/2024 18:57:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 35: Training loss 11.635, Lr 0.00084
+02/08/2024 18:57:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 35: Test loss: 0.00
+02/08/2024 18:57:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 36: Training loss 11.239, Lr 0.00084
+02/08/2024 18:57:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 37: Training loss 11.128, Lr 0.00083
+02/08/2024 18:57:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 38: Training loss 10.942, Lr 0.00083
+02/08/2024 18:57:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 39: Training loss 10.884, Lr 0.00083
+02/08/2024 18:57:16 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 40: Training loss 11.197, Lr 0.00082
+02/08/2024 18:57:17 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 40: Test loss: 0.00
+02/08/2024 18:57:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 41: Training loss 11.048, Lr 0.00082
+02/08/2024 18:57:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 42: Training loss 10.828, Lr 0.00081
+02/08/2024 18:57:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 43: Training loss 10.628, Lr 0.00081
+02/08/2024 18:57:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 44: Training loss 10.392, Lr 0.00081
+02/08/2024 18:57:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 45: Training loss 10.285, Lr 0.00080
+02/08/2024 18:57:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 45: Test loss: 0.00
+02/08/2024 18:57:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 46: Training loss 10.241, Lr 0.00080
+02/08/2024 18:57:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 47: Training loss 10.086, Lr 0.00079
+02/08/2024 18:57:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 48: Training loss 10.464, Lr 0.00079
+02/08/2024 18:57:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 49: Training loss 10.229, Lr 0.00079
+02/08/2024 18:57:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 50: Training loss 10.078, Lr 0.00078
+02/08/2024 18:57:34 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 50: Test loss: 0.00
+02/08/2024 18:57:34 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 18:57:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 51: Training loss 10.015, Lr 0.00078
+02/08/2024 18:57:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 52: Training loss 9.761, Lr 0.00077
+02/08/2024 18:57:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 53: Training loss 9.885, Lr 0.00077
+02/08/2024 18:57:39 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 54: Training loss 9.874, Lr 0.00077
+02/08/2024 18:57:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 55: Training loss 9.538, Lr 0.00076
+02/08/2024 18:57:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 55: Test loss: 0.00
+02/08/2024 18:57:43 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 56: Training loss 9.296, Lr 0.00076
+02/08/2024 18:57:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 57: Training loss 9.596, Lr 0.00076
+02/08/2024 18:57:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 58: Training loss 9.289, Lr 0.00075
+02/08/2024 18:57:47 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 59: Training loss 9.345, Lr 0.00075
+02/08/2024 18:57:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 60: Training loss 9.115, Lr 0.00074
+02/08/2024 18:57:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 60: Test loss: 0.00
+02/08/2024 18:57:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 61: Training loss 9.125, Lr 0.00074
+02/08/2024 18:57:52 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 62: Training loss 8.910, Lr 0.00074
+02/08/2024 18:57:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 63: Training loss 9.083, Lr 0.00073
+02/08/2024 18:57:55 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 64: Training loss 8.847, Lr 0.00073
+02/08/2024 18:57:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 65: Training loss 8.712, Lr 0.00073
+02/08/2024 18:57:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 65: Test loss: 0.00
+02/08/2024 18:57:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 66: Training loss 8.632, Lr 0.00072
+02/08/2024 18:58:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 67: Training loss 8.732, Lr 0.00072
+02/08/2024 18:58:01 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 68: Training loss 8.595, Lr 0.00071
+02/08/2024 18:58:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 69: Training loss 8.734, Lr 0.00071
+02/08/2024 18:58:04 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 70: Training loss 8.561, Lr 0.00071
+02/08/2024 18:58:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 70: Test loss: 0.00
+02/08/2024 18:58:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 71: Training loss 8.599, Lr 0.00070
+02/08/2024 18:58:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 72: Training loss 8.871, Lr 0.00070
+02/08/2024 18:58:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 73: Training loss 8.550, Lr 0.00070
+02/08/2024 18:58:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 74: Training loss 8.702, Lr 0.00069
+02/08/2024 18:58:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 75: Training loss 8.600, Lr 0.00069
+02/08/2024 18:58:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 75: Test loss: 0.00
+02/08/2024 18:58:12 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 18:58:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 76: Training loss 8.377, Lr 0.00069
+02/08/2024 18:58:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 77: Training loss 8.453, Lr 0.00068
+02/08/2024 18:58:17 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 78: Training loss 8.004, Lr 0.00068
+02/08/2024 18:58:18 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 79: Training loss 8.265, Lr 0.00068
+02/08/2024 18:58:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 80: Training loss 8.258, Lr 0.00067
+02/08/2024 18:58:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 80: Test loss: 0.00
+02/08/2024 18:58:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 81: Training loss 8.087, Lr 0.00067
+02/08/2024 18:58:26 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 82: Training loss 8.085, Lr 0.00067
+02/08/2024 18:58:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 83: Training loss 8.196, Lr 0.00066
+02/08/2024 18:58:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 84: Training loss 8.003, Lr 0.00066
+02/08/2024 18:58:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 85: Training loss 8.185, Lr 0.00066
+02/08/2024 18:58:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 85: Test loss: 0.00
+02/08/2024 18:58:32 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 86: Training loss 8.159, Lr 0.00065
+02/08/2024 18:58:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 87: Training loss 8.310, Lr 0.00065
+02/08/2024 18:58:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 88: Training loss 8.377, Lr 0.00065
+02/08/2024 18:58:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 89: Training loss 7.995, Lr 0.00064
+02/08/2024 18:58:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 90: Training loss 8.285, Lr 0.00064
+02/08/2024 18:58:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 90: Test loss: 0.00
+02/08/2024 18:58:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 91: Training loss 7.990, Lr 0.00064
+02/08/2024 18:58:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 92: Training loss 7.929, Lr 0.00063
+02/08/2024 18:58:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 93: Training loss 7.949, Lr 0.00063
+02/08/2024 18:58:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 94: Training loss 7.913, Lr 0.00063
+02/08/2024 18:58:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 95: Training loss 7.677, Lr 0.00062
+02/08/2024 18:58:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 95: Test loss: 0.00
+02/08/2024 18:58:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 96: Training loss 7.612, Lr 0.00062
+02/08/2024 18:58:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 97: Training loss 7.569, Lr 0.00062
+02/08/2024 18:58:50 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 98: Training loss 7.544, Lr 0.00061
+02/08/2024 18:58:52 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 99: Training loss 7.768, Lr 0.00061
+02/08/2024 18:58:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 100: Training loss 8.278, Lr 0.00061
+02/08/2024 18:58:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 100: Test loss: 0.00
+02/08/2024 18:58:54 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 18:59:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 101: Training loss 7.575, Lr 0.00061
+02/08/2024 18:59:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 102: Training loss 7.628, Lr 0.00060
+02/08/2024 18:59:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 103: Training loss 7.305, Lr 0.00060
+02/08/2024 18:59:04 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 104: Training loss 7.513, Lr 0.00060
+02/08/2024 18:59:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 105: Training loss 7.219, Lr 0.00059
+02/08/2024 18:59:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 105: Test loss: 0.00
+02/08/2024 18:59:08 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 106: Training loss 7.363, Lr 0.00059
+02/08/2024 18:59:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 107: Training loss 7.430, Lr 0.00059
+02/08/2024 18:59:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 108: Training loss 7.258, Lr 0.00058
+02/08/2024 18:59:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 109: Training loss 7.698, Lr 0.00058
+02/08/2024 18:59:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 110: Training loss 7.546, Lr 0.00058
+02/08/2024 18:59:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 110: Test loss: 0.00
+02/08/2024 18:59:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 111: Training loss 7.498, Lr 0.00058
+02/08/2024 18:59:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 112: Training loss 7.583, Lr 0.00057
+02/08/2024 18:59:22 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 113: Training loss 7.098, Lr 0.00057
+02/08/2024 18:59:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 114: Training loss 7.027, Lr 0.00057
+02/08/2024 18:59:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 115: Training loss 7.148, Lr 0.00056
+02/08/2024 18:59:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 115: Test loss: 0.00
+02/08/2024 18:59:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 116: Training loss 6.986, Lr 0.00056
+02/08/2024 18:59:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 117: Training loss 7.132, Lr 0.00056
+02/08/2024 18:59:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 118: Training loss 6.995, Lr 0.00056
+02/08/2024 18:59:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 119: Training loss 7.046, Lr 0.00055
+02/08/2024 18:59:32 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 120: Training loss 6.868, Lr 0.00055
+02/08/2024 18:59:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 120: Test loss: 0.00
+02/08/2024 18:59:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 121: Training loss 6.905, Lr 0.00055
+02/08/2024 18:59:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 122: Training loss 6.995, Lr 0.00055
+02/08/2024 18:59:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 123: Training loss 6.867, Lr 0.00054
+02/08/2024 18:59:39 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 124: Training loss 6.952, Lr 0.00054
+02/08/2024 18:59:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 125: Training loss 7.060, Lr 0.00054
+02/08/2024 18:59:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 125: Test loss: 0.00
+02/08/2024 18:59:41 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 18:59:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 126: Training loss 6.915, Lr 0.00053
+02/08/2024 18:59:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 127: Training loss 6.853, Lr 0.00053
+02/08/2024 18:59:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 128: Training loss 7.005, Lr 0.00053
+02/08/2024 18:59:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 129: Training loss 6.817, Lr 0.00053
+02/08/2024 18:59:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 130: Training loss 6.686, Lr 0.00052
+02/08/2024 18:59:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 130: Test loss: 0.00
+02/08/2024 18:59:50 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 131: Training loss 6.736, Lr 0.00052
+02/08/2024 18:59:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 132: Training loss 6.590, Lr 0.00052
+02/08/2024 18:59:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 133: Training loss 6.544, Lr 0.00052
+02/08/2024 18:59:55 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 134: Training loss 6.450, Lr 0.00051
+02/08/2024 18:59:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 135: Training loss 6.399, Lr 0.00051
+02/08/2024 18:59:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 135: Test loss: 0.00
+02/08/2024 18:59:59 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 136: Training loss 6.548, Lr 0.00051
+02/08/2024 19:00:01 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 137: Training loss 6.575, Lr 0.00051
+02/08/2024 19:00:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 138: Training loss 6.491, Lr 0.00050
+02/08/2024 19:00:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 139: Training loss 6.432, Lr 0.00050
+02/08/2024 19:00:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 140: Training loss 6.620, Lr 0.00050
+02/08/2024 19:00:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 140: Test loss: 0.00
+02/08/2024 19:00:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 141: Training loss 6.373, Lr 0.00050
+02/08/2024 19:00:08 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 142: Training loss 6.456, Lr 0.00049
+02/08/2024 19:00:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 143: Training loss 6.885, Lr 0.00049
+02/08/2024 19:00:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 144: Training loss 6.770, Lr 0.00049
+02/08/2024 19:00:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 145: Training loss 6.569, Lr 0.00049
+02/08/2024 19:00:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 145: Test loss: 0.00
+02/08/2024 19:00:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 146: Training loss 6.498, Lr 0.00048
+02/08/2024 19:00:16 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 147: Training loss 6.343, Lr 0.00048
+02/08/2024 19:00:17 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 148: Training loss 6.356, Lr 0.00048
+02/08/2024 19:00:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 149: Training loss 6.484, Lr 0.00048
+02/08/2024 19:00:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 150: Training loss 6.362, Lr 0.00047
+02/08/2024 19:00:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 150: Test loss: 0.00
+02/08/2024 19:00:21 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:00:22 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 151: Training loss 6.297, Lr 0.00047
+02/08/2024 19:00:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 152: Training loss 6.343, Lr 0.00047
+02/08/2024 19:00:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 153: Training loss 6.331, Lr 0.00047
+02/08/2024 19:00:26 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 154: Training loss 6.295, Lr 0.00046
+02/08/2024 19:00:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 155: Training loss 6.148, Lr 0.00046
+02/08/2024 19:00:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 155: Test loss: 0.00
+02/08/2024 19:00:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 156: Training loss 6.423, Lr 0.00046
+02/08/2024 19:00:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 157: Training loss 6.525, Lr 0.00046
+02/08/2024 19:00:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 158: Training loss 6.378, Lr 0.00046
+02/08/2024 19:00:34 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 159: Training loss 6.271, Lr 0.00045
+02/08/2024 19:00:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 160: Training loss 6.277, Lr 0.00045
+02/08/2024 19:00:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 160: Test loss: 0.00
+02/08/2024 19:00:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 161: Training loss 6.478, Lr 0.00045
+02/08/2024 19:00:39 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 162: Training loss 7.123, Lr 0.00045
+02/08/2024 19:00:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 163: Training loss 6.489, Lr 0.00044
+02/08/2024 19:00:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 164: Training loss 6.488, Lr 0.00044
+02/08/2024 19:00:43 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 165: Training loss 6.244, Lr 0.00044
+02/08/2024 19:00:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 165: Test loss: 0.00
+02/08/2024 19:00:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 166: Training loss 6.212, Lr 0.00044
+02/08/2024 19:00:47 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 167: Training loss 6.061, Lr 0.00044
+02/08/2024 19:00:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 168: Training loss 6.129, Lr 0.00043
+02/08/2024 19:00:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 169: Training loss 6.150, Lr 0.00043
+02/08/2024 19:00:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 170: Training loss 6.305, Lr 0.00043
+02/08/2024 19:00:52 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 170: Test loss: 0.00
+02/08/2024 19:00:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 171: Training loss 6.184, Lr 0.00043
+02/08/2024 19:00:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 172: Training loss 6.212, Lr 0.00042
+02/08/2024 19:00:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 173: Training loss 6.418, Lr 0.00042
+02/08/2024 19:00:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 174: Training loss 6.548, Lr 0.00042
+02/08/2024 19:00:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 175: Training loss 6.397, Lr 0.00042
+02/08/2024 19:00:59 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 175: Test loss: 0.00
+02/08/2024 19:00:59 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:01:01 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 176: Training loss 6.160, Lr 0.00042
+02/08/2024 19:01:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 177: Training loss 6.477, Lr 0.00041
+02/08/2024 19:01:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 178: Training loss 6.311, Lr 0.00041
+02/08/2024 19:01:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 179: Training loss 6.144, Lr 0.00041
+02/08/2024 19:01:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 180: Training loss 5.931, Lr 0.00041
+02/08/2024 19:01:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 180: Test loss: 0.00
+02/08/2024 19:01:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 181: Training loss 5.910, Lr 0.00041
+02/08/2024 19:01:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 182: Training loss 5.880, Lr 0.00040
+02/08/2024 19:01:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 183: Training loss 5.956, Lr 0.00040
+02/08/2024 19:01:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 184: Training loss 5.813, Lr 0.00040
+02/08/2024 19:01:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 185: Training loss 5.955, Lr 0.00040
+02/08/2024 19:01:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 185: Test loss: 0.00
+02/08/2024 19:01:16 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 186: Training loss 5.959, Lr 0.00040
+02/08/2024 19:01:18 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 187: Training loss 5.808, Lr 0.00039
+02/08/2024 19:01:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 188: Training loss 5.771, Lr 0.00039
+02/08/2024 19:01:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 189: Training loss 5.879, Lr 0.00039
+02/08/2024 19:01:22 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 190: Training loss 6.293, Lr 0.00039
+02/08/2024 19:01:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 190: Test loss: 0.00
+02/08/2024 19:01:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 191: Training loss 5.964, Lr 0.00039
+02/08/2024 19:01:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 192: Training loss 6.007, Lr 0.00038
+02/08/2024 19:01:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 193: Training loss 5.805, Lr 0.00038
+02/08/2024 19:01:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 194: Training loss 5.827, Lr 0.00038
+02/08/2024 19:01:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 195: Training loss 5.814, Lr 0.00038
+02/08/2024 19:01:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 195: Test loss: 0.00
+02/08/2024 19:01:32 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 196: Training loss 5.756, Lr 0.00038
+02/08/2024 19:01:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 197: Training loss 5.738, Lr 0.00037
+02/08/2024 19:01:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 198: Training loss 5.980, Lr 0.00037
+02/08/2024 19:01:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 199: Training loss 5.796, Lr 0.00037
+02/08/2024 19:01:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 200: Training loss 5.692, Lr 0.00037
+02/08/2024 19:01:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 200: Test loss: 0.00
+02/08/2024 19:01:38 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:01:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 201: Training loss 5.761, Lr 0.00037
+02/08/2024 19:01:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 202: Training loss 5.694, Lr 0.00037
+02/08/2024 19:01:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 203: Training loss 5.592, Lr 0.00036
+02/08/2024 19:01:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 204: Training loss 5.661, Lr 0.00036
+02/08/2024 19:01:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 205: Training loss 5.866, Lr 0.00036
+02/08/2024 19:01:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 205: Test loss: 0.00
+02/08/2024 19:01:50 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 206: Training loss 5.873, Lr 0.00036
+02/08/2024 19:01:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 207: Training loss 5.769, Lr 0.00036
+02/08/2024 19:01:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 208: Training loss 5.784, Lr 0.00035
+02/08/2024 19:01:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 209: Training loss 5.666, Lr 0.00035
+02/08/2024 19:01:55 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 210: Training loss 5.794, Lr 0.00035
+02/08/2024 19:01:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 210: Test loss: 0.00
+02/08/2024 19:01:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 211: Training loss 5.696, Lr 0.00035
+02/08/2024 19:01:59 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 212: Training loss 5.772, Lr 0.00035
+02/08/2024 19:02:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 213: Training loss 5.656, Lr 0.00035
+02/08/2024 19:02:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 214: Training loss 5.536, Lr 0.00034
+02/08/2024 19:02:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 215: Training loss 5.583, Lr 0.00034
+02/08/2024 19:02:04 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 215: Test loss: 0.00
+02/08/2024 19:02:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 216: Training loss 5.696, Lr 0.00034
+02/08/2024 19:02:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 217: Training loss 5.506, Lr 0.00034
+02/08/2024 19:02:08 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 218: Training loss 5.631, Lr 0.00034
+02/08/2024 19:02:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 219: Training loss 5.445, Lr 0.00034
+02/08/2024 19:02:11 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 220: Training loss 5.506, Lr 0.00033
+02/08/2024 19:02:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 220: Test loss: 0.00
+02/08/2024 19:02:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 221: Training loss 5.415, Lr 0.00033
+02/08/2024 19:02:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 222: Training loss 5.420, Lr 0.00033
+02/08/2024 19:02:20 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 223: Training loss 5.534, Lr 0.00033
+02/08/2024 19:02:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 224: Training loss 5.434, Lr 0.00033
+02/08/2024 19:02:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 225: Training loss 5.386, Lr 0.00033
+02/08/2024 19:02:24 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 225: Test loss: 0.00
+02/08/2024 19:02:24 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:02:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 226: Training loss 5.418, Lr 0.00032
+02/08/2024 19:02:26 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 227: Training loss 5.452, Lr 0.00032
+02/08/2024 19:02:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 228: Training loss 5.394, Lr 0.00032
+02/08/2024 19:02:29 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 229: Training loss 5.467, Lr 0.00032
+02/08/2024 19:02:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 230: Training loss 5.399, Lr 0.00032
+02/08/2024 19:02:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 230: Test loss: 0.00
+02/08/2024 19:02:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 231: Training loss 5.366, Lr 0.00032
+02/08/2024 19:02:34 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 232: Training loss 5.300, Lr 0.00031
+02/08/2024 19:02:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 233: Training loss 5.311, Lr 0.00031
+02/08/2024 19:02:37 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 234: Training loss 5.444, Lr 0.00031
+02/08/2024 19:02:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 235: Training loss 5.821, Lr 0.00031
+02/08/2024 19:02:39 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 235: Test loss: 0.00
+02/08/2024 19:02:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 236: Training loss 5.513, Lr 0.00031
+02/08/2024 19:02:42 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 237: Training loss 5.682, Lr 0.00031
+02/08/2024 19:02:43 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 238: Training loss 5.489, Lr 0.00030
+02/08/2024 19:02:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 239: Training loss 5.523, Lr 0.00030
+02/08/2024 19:02:46 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 240: Training loss 5.409, Lr 0.00030
+02/08/2024 19:02:47 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 240: Test loss: 0.00
+02/08/2024 19:02:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 241: Training loss 5.291, Lr 0.00030
+02/08/2024 19:02:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 242: Training loss 5.437, Lr 0.00030
+02/08/2024 19:02:51 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 243: Training loss 5.393, Lr 0.00030
+02/08/2024 19:02:52 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 244: Training loss 5.285, Lr 0.00030
+02/08/2024 19:02:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 245: Training loss 5.281, Lr 0.00029
+02/08/2024 19:02:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 245: Test loss: 0.00
+02/08/2024 19:02:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 246: Training loss 5.223, Lr 0.00029
+02/08/2024 19:02:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 247: Training loss 5.290, Lr 0.00029
+02/08/2024 19:02:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 248: Training loss 5.313, Lr 0.00029
+02/08/2024 19:03:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 249: Training loss 5.294, Lr 0.00029
+02/08/2024 19:03:01 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 250: Training loss 5.223, Lr 0.00029
+02/08/2024 19:03:02 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 250: Test loss: 0.00
+02/08/2024 19:03:02 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:03:04 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 251: Training loss 5.222, Lr 0.00029
+02/08/2024 19:03:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 252: Training loss 5.218, Lr 0.00028
+02/08/2024 19:03:07 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 253: Training loss 5.385, Lr 0.00028
+02/08/2024 19:03:08 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 254: Training loss 5.239, Lr 0.00028
+02/08/2024 19:03:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 255: Training loss 6.017, Lr 0.00028
+02/08/2024 19:03:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 255: Test loss: 0.00
+02/08/2024 19:03:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 256: Training loss 5.496, Lr 0.00028
+02/08/2024 19:03:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 257: Training loss 5.240, Lr 0.00028
+02/08/2024 19:03:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 258: Training loss 5.253, Lr 0.00028
+02/08/2024 19:03:16 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 259: Training loss 5.563, Lr 0.00027
+02/08/2024 19:03:17 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 260: Training loss 5.219, Lr 0.00027
+02/08/2024 19:03:18 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 260: Test loss: 0.00
+02/08/2024 19:03:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 261: Training loss 5.293, Lr 0.00027
+02/08/2024 19:03:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 262: Training loss 5.119, Lr 0.00027
+02/08/2024 19:03:22 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 263: Training loss 5.169, Lr 0.00027
+02/08/2024 19:03:23 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 264: Training loss 5.125, Lr 0.00027
+02/08/2024 19:03:25 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 265: Training loss 5.139, Lr 0.00027
+02/08/2024 19:03:26 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 265: Test loss: 0.00
+02/08/2024 19:03:27 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 266: Training loss 5.095, Lr 0.00026
+02/08/2024 19:03:28 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 267: Training loss 5.086, Lr 0.00026
+02/08/2024 19:03:30 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 268: Training loss 5.149, Lr 0.00026
+02/08/2024 19:03:31 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 269: Training loss 5.049, Lr 0.00026
+02/08/2024 19:03:33 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 270: Training loss 5.092, Lr 0.00026
+02/08/2024 19:03:34 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 270: Test loss: 0.00
+02/08/2024 19:03:35 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 271: Training loss 5.078, Lr 0.00026
+02/08/2024 19:03:36 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 272: Training loss 5.274, Lr 0.00026
+02/08/2024 19:03:38 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 273: Training loss 5.278, Lr 0.00026
+02/08/2024 19:03:39 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 274: Training loss 5.299, Lr 0.00025
+02/08/2024 19:03:40 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 275: Training loss 5.265, Lr 0.00025
+02/08/2024 19:03:41 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 275: Test loss: 0.00
+02/08/2024 19:03:41 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
+02/08/2024 19:03:43 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 276: Training loss 5.206, Lr 0.00025
+02/08/2024 19:03:44 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 277: Training loss 5.100, Lr 0.00025
+02/08/2024 19:03:45 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 278: Training loss 5.017, Lr 0.00025
+02/08/2024 19:03:47 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 279: Training loss 5.325, Lr 0.00025
+02/08/2024 19:03:48 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 280: Training loss 5.307, Lr 0.00025
+02/08/2024 19:03:49 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 280: Test loss: 0.00
+02/08/2024 19:03:50 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 281: Training loss 5.408, Lr 0.00025
+02/08/2024 19:03:52 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 282: Training loss 5.098, Lr 0.00024
+02/08/2024 19:03:53 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 283: Training loss 5.077, Lr 0.00024
+02/08/2024 19:03:54 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 284: Training loss 5.030, Lr 0.00024
+02/08/2024 19:03:56 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 285: Training loss 5.014, Lr 0.00024
+02/08/2024 19:03:57 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 285: Test loss: 0.00
+02/08/2024 19:03:58 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 286: Training loss 5.197, Lr 0.00024
+02/08/2024 19:04:00 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 287: Training loss 5.137, Lr 0.00024
+02/08/2024 19:04:03 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 288: Training loss 5.154, Lr 0.00024
+02/08/2024 19:04:04 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 289: Training loss 5.128, Lr 0.00024
+02/08/2024 19:04:05 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 290: Training loss 5.116, Lr 0.00023
+02/08/2024 19:04:06 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 290: Test loss: 0.00
+02/08/2024 19:04:08 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 291: Training loss 5.112, Lr 0.00023
+02/08/2024 19:04:09 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 292: Training loss 5.192, Lr 0.00023
+02/08/2024 19:04:10 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 293: Training loss 5.097, Lr 0.00023
+02/08/2024 19:04:12 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 294: Training loss 5.022, Lr 0.00023
+02/08/2024 19:04:13 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 295: Training loss 4.920, Lr 0.00023
+02/08/2024 19:04:14 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 295: Test loss: 0.00
+02/08/2024 19:04:15 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 296: Training loss 5.075, Lr 0.00023
+02/08/2024 19:04:17 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 297: Training loss 4.933, Lr 0.00023
+02/08/2024 19:04:18 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 298: Training loss 4.909, Lr 0.00023
+02/08/2024 19:04:19 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 299: Training loss 4.897, Lr 0.00022
+02/08/2024 19:04:21 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 300: Training loss 4.863, Lr 0.00022
+02/08/2024 19:04:22 - INFO - trphysx.embedding.training.enn_trainer -   Epoch 300: Test loss: 0.00
+02/08/2024 19:04:22 - INFO - trphysx.embedding.training.enn_trainer -   Checkpointing model, optimizer and scheduler.
