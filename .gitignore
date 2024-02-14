@@ -146,6 +146,7 @@ dmypy.json
 
 # Misc folders
 outputs/
+logs/
 pretrained/
 gmsh/
 .idea/
