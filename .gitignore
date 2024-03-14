@@ -135,6 +135,7 @@ dmypy.json
 *.h5
 *.csv
 *.npy
+data/
 
 # Output files
 *.json
