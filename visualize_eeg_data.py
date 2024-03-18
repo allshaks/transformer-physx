@@ -108,7 +108,7 @@ def main():
     x_coordinates = np.empty(len(subjects), dtype = object)
     y_coordinates = np.empty(len(subjects), dtype = object)
     for i, d in enumerate(data):
-        x_coordinates[i] ,  [i] = plot_mgfp(data[i], selected_indices)
+        x_coordinates[i] , y_coordinates[i] = plot_mgfp(data[i], selected_indices)
     
     fig, axs = plt.subplots(5, 2)
     for i in range(10):
