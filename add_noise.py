@@ -44,6 +44,7 @@ def add_gaus_noise(y_coord, mean=0, standard_dev = 0.1):
 
 def save_to_h5(file_name, data_array, dataset_name):
     file_path = './data/Somatosensory/HDF5/' + file_name
+    # 'w' to overwrite, 'a' to add multiple files, if error occurs, delete existing files with same name
     with h5py.File(file_path, 'a') as file:     
         dset = file.create_dataset(dataset_name, data = data_array)
 
