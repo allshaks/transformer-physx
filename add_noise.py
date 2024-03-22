@@ -6,9 +6,9 @@ import h5py
 
 #######
 ### Goal: 
-# Create 200 (later 6000) datasets applying gaussian noise to the trial-averaged data on a channel-based level for each subject. 
+# Create 1000 (later 6000) datasets applying gaussian noise to the trial-averaged data on a channel-based level for each subject. 
 # Results will be stored in a single .h5-file (for each subject)
-# File contains 200 (later 6000) datasets, each with 256 channels and 369 time points
+# File contains 1000 (later 6000) datasets, each with 256 channels and 369 time points
 #######
 ### Next steps:
 #   - Fix scale issues
@@ -55,7 +55,7 @@ def add_gaus_noise(y_coord, mean=0, standard_dev = 0.1):
     return y_noise
 
 def save_to_h5(file_name, data_array, dataset_name):
-    file_path = './data/Somatosensory/HDF5/' + file_name
+    file_path = './data/Somatosensory/HDF5/' + file_name + ".h5"
     # 'w' to overwrite, 'a' to add multiple files, if error occurs, delete existing files with same name
     with h5py.File(file_path, 'a') as file:     
         dset = file.create_dataset(dataset_name, data = data_array)
