@@ -27,12 +27,9 @@ with h5py.File(file_path, "r") as f:
             break
 
 print(examples[0])
-# Calculate normalization constants
-
 data = torch.cat(examples, dim=0)
 print(data[0])
-# Calculate normalization constants
-data = torch.cat(examples, dim=0)
+
 """ ## Notes for better understanding of data:
 # len(data) is trials x (time_points - block_size + 1)/stride = 1000 * (369 - 16 + 1)/1 = 354.000
 #  -> means we have 1000 trials and for each trial we create a number of blocks calculated by 
@@ -45,11 +42,20 @@ data = torch.cat(examples, dim=0)
 # this implies, that element data[0][0][10] is the same as element data[10][0][0] (for stride 1) and as element data[5][0][5]
 """
 # data seems to be different than original data if we look at the mu and std function -> compare!!
+# incorrect right now as data is formatted differently
+
+# transpose data to get correct format
+data_t = data.transpose(1,2)
+
+# Calculate normalization constants -> takes forever as our data is way too large (356.000x16x256)
 
 #mu = torch.tensor([torch.mean(data[:,:,0]), torch.mean(data[:,:,1]), torch.mean(data[:,:,2])])
-mu_list = [torch.mean(data[:,:,i]) for i in range(256)]
-mu = torch.tensor(mu_list)
+mu = torch.mean(data_t, dim=2)
+mu = torch.tensor(mu)
+#mu.size() is [354000, 16]
+print(mu)
 
 #std = torch.tensor([torch.std(data[:,:,0]), torch.std(data[:,:,1]), torch.std(data[:,:,2])])
-std_list = [torch.mean(data[:,:,i]) for i in range(256)]
-std = torch.tensor(std_list)
+std = torch.mean(data_t, dim=2)
+std = torch.tensor(std)
+print(std)
