@@ -15,6 +15,9 @@ import logging
 import torch
 from torch.optim.lr_scheduler import ExponentialLR
 
+# easy way to add 
+sys.path.append('/data/u_leng_software/git/transformer-physx/')
+
 from trphysx.config.configuration_auto import AutoPhysConfig
 from trphysx.embedding.embedding_auto import AutoEmbeddingModel
 from trphysx.embedding.training import *
@@ -23,11 +26,12 @@ logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
 
-    sys.argv = sys.argv + ["--exp_name", "lorenz"]
+    #sys.argv = sys.argv + ["--exp_name", "lorenz"]
     #sys.argv = sys.argv + ["--training_h5_file", "./data/lorenz_training_rk.hdf5"]
-    sys.argv = sys.argv + ["--training_h5_file", "./data/HDF5/dataset_sub05.hdf5"]
     #sys.argv = sys.argv + ["--eval_h5_file", "./data/lorenz_valid_rk.hdf5"]
-    sys.argv = sys.argv + ["--eval_h5_file", "./data/HDF5/dataset_sub05.hdf5"]
+    sys.argv = sys.argv + ["--exp_name", "EEGSEP"]
+    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
     sys.argv = sys.argv + ["--batch_size", "512"]
     sys.argv = sys.argv + ["--block_size", "16"]
     sys.argv = sys.argv + ["--n_train", "2048"]

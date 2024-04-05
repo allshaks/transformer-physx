@@ -20,6 +20,7 @@ from .configuration_phys import PhysConfig
 CONFIG_MAPPING = OrderedDict(
     [
         ("lorenz", LorenzConfig),
+        ("EEGSEP", LorenzConfig),
         ("cylinder", CylinderConfig),
         ("grayscott", GrayScottConfig)
     ]
@@ -42,7 +43,7 @@ class AutoPhysConfig:
     @classmethod
     def load_config(cls, model_name_or_path, **kwargs) -> PhysConfig:
         """Creates a configuration object for a transformer model.
-        Predefined configs currently support: "lorenz", "cylinder", "grayscott"
+        Predefined configs currently support: "lorenz", "cylinder", "grayscott"; "EEGSEP" will be added
 
         Args:
             model_name_or_path (str): Name of model or path to save config JSON file

@@ -41,7 +41,7 @@ class EmbeddingDataHandler(object):
             (Tuple): mean and standard deviation
         """
         if self.mu is None or self.std is None:
-            raise ValueError("Normalization constants set yet!")
+            raise ValueError("Normalization not constants set yet!")
         return self.mu, self.std
 
     @abstractmethod
@@ -252,6 +252,8 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
         assert os.path.isfile(file_path), "Training HDF5 file {} not found".format(file_path)
         
         examples = []
+
+        # !!! compare to original data of Lorenz attractor and compare structure; most issues come from here
         with h5py.File(file_path, "r") as f:
             # Iterate through stored time-series
             samples = 0
@@ -274,15 +276,16 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
         # Calculate normalization constants -> takes forever as our data is way too large (356.000x16x256)
 
         #mu = torch.tensor([torch.mean(data[:,:,0]), torch.mean(data[:,:,1]), torch.mean(data[:,:,2])])
-        mu = torch.mean(data_t, dim=2)
-        mu = torch.tensor(mu)
-        #mu.size() is [354000, 16]
-        print(mu)
+        self.mu = torch.mean(data_t, dim=2)
+        self.mu = torch.tensor(self.mu)
+        #mu.size() is [354000, 16] (or [16000, 16] depending on the size of our original dataset)
+        #mu.size() is supposed to be [512, 16] I think, since we need it to be that exact size for later calculations
+
 
         #std = torch.tensor([torch.std(data[:,:,0]), torch.std(data[:,:,1]), torch.std(data[:,:,2])])
-        std = torch.mean(data_t, dim=2)
-        std = torch.tensor(std)
-        print(std)
+        self.std = torch.mean(data_t, dim=2)
+        self.std = torch.tensor(self.std)
+     
 
         # Needs to min-max normalization due to the reservoir matrix, needing to have a spectral density below 1
         if(data.size(0) < batch_size):
@@ -343,7 +346,7 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
             batch_size = data.size(0)
 
         dataset = self.EEGSEPDataset(data)
-        data_collator = self.EEGSEPataCollator()
+        data_collator = self.EEGSEPDataCollator()
         testing_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, collate_fn=data_collator, drop_last=False)
 
         return testing_loader
@@ -693,7 +696,7 @@ class GrayScottDataHandler(EmbeddingDataHandler):
 LOADER_MAPPING = OrderedDict(
     [
         ("lorenz", LorenzDataHandler),
-        ("eegsep", EEGSEPDataHandler),
+        ("EEGSEP", EEGSEPDataHandler),
         ("cylinder", CylinderDataHandler),
         ("grayscott", GrayScottDataHandler)
     ]
