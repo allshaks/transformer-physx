@@ -89,7 +89,7 @@ class EmbeddingTrainer:
             loss_reconstruct = 0.0
             self.model.zero_grad()
             for mbidx, inputs in enumerate(training_loader):
-                # for eegsep data: inputs["states"].size() is [512, 16, 369]
+                # for eegsep data: inputs["states"].size() is [512, 16, 256]
                 
                 loss0, loss_reconstruct0 = self.model(**inputs)
                 loss0 = loss0.sum()

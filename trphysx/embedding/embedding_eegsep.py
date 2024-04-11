@@ -85,7 +85,7 @@ class EEGSEPEmbedding(EmbeddingModel):
                 | (Tensor): [B, 3] Recovered feature tensor
         """
         # Encode
-        # for eegsep data: x.size() is [512, 369]
+        # for eegsep data: x.size() is [512, 256]
         x = self._normalize(x)
         g = self.observableNet(x)
         # Decode
@@ -199,7 +199,7 @@ class EEGSEPEmbeddingTrainer(EmbeddingTrainingHead):
         mseLoss = nn.MSELoss()
 
         xin0 = states[:,0].to(device) # Time-step
-        # for eegsep data: xin0.size() is [512, 369]
+        # for eegsep data: xin0.size() is [512, 256]
 
         # Model forward for initial time-step
         g0, xRec0 = self.embedding_model(xin0)

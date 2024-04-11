@@ -257,9 +257,12 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
         with h5py.File(file_path, "r") as f:
             # Iterate through stored time-series
             samples = 0
-            for key in f.keys():
+            for key in f.keys():      # for 1000 samples there are 1000 keys
                 data_series = torch.Tensor(f[key])
+                # transpose to get dimensions right: dim0 should be time points, dim1 channels
+                data_series = data_series.transpose(0,1)
                 # Stride over time-series
+                # For 369 time points: 0 -> 354 with step size 16 results in 22.125 = 23 blocks
                 for i in range(0,  data_series.size(0) - block_size + 1, stride):  # Truncate in block of block_size
                     examples.append(data_series[i : i + block_size].unsqueeze(0))
 
@@ -269,28 +272,24 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
 
         # Calculate normalization constants
         data = torch.cat(examples, dim=0)
-     
-        # transpose data to get correct format
-        data_t = data.transpose(1,2)
 
-        # Calculate normalization constants -> takes forever as our data is way too large (356.000x16x256)
+        # mu.size() and std.size() is supposed to be batch_size x block_size [512, 16] I think, 
+        # since we need it to be that size for later calculations
+        # -> how do we get it to have this dimension correctly?
 
         #mu = torch.tensor([torch.mean(data[:,:,0]), torch.mean(data[:,:,1]), torch.mean(data[:,:,2])])
-        self.mu = torch.mean(data_t, dim=2)
+        self.mu = torch.mean(data, dim=2)
         self.mu = torch.tensor(self.mu)
-        #mu.size() is [354000, 16] (or [16000, 16] depending on the size of our original dataset)
-        #mu.size() is supposed to be [512, 16] I think, since we need it to be that exact size for later calculations
-
 
         #std = torch.tensor([torch.std(data[:,:,0]), torch.std(data[:,:,1]), torch.std(data[:,:,2])])
-        self.std = torch.mean(data_t, dim=2)
+        self.std = torch.mean(data, dim=2)
         self.std = torch.tensor(self.std)
-     
 
         # Needs to min-max normalization due to the reservoir matrix, needing to have a spectral density below 1
         if(data.size(0) < batch_size):
             logger.warning('Lower batch-size to {:d}'.format(data.size(0)))
             batch_size = data.size(0)
+
 
         # Create dataset, collator, and dataloader
         dataset = self.EEGSEPDataset(data)
@@ -303,8 +302,8 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
         file_path: str,
         block_size: int,
         ndata: int = -1,
-        batch_size: int =32,
-        shuffle: bool =False
+        batch_size: int = 32,
+        shuffle: bool = False
     ) -> DataLoader:
         """Creating testing/validation data loader for EEGSEP system.
         For a data case with time-steps [0,T], this method extracts a smaller
@@ -330,6 +329,8 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
             samples = 0
             for key in f.keys():
                 data_series = torch.Tensor(f[key])
+                # transpose to get dimensions right: dim0 should be time points, dim1 channels
+                data_series = data_series.transpose(0,1)
                 # Stride over time-series
                 for i in range(0,  data_series.size(0) - block_size + 1, block_size):  # Truncate in block of block_size
                     examples.append(data_series[i : i + block_size].unsqueeze(0))
