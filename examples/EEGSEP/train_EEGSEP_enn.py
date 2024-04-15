@@ -15,7 +15,7 @@ import logging
 import torch
 from torch.optim.lr_scheduler import ExponentialLR
 
-# easy way to add 
+# easy way to add to path
 sys.path.append('/data/u_leng_software/git/transformer-physx/')
 
 from trphysx.config.configuration_auto import AutoPhysConfig
@@ -26,9 +26,9 @@ logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
 
-    sys.argv = sys.argv + ["--exp_name", "lorenz"]
-    sys.argv = sys.argv + ["--training_h5_file", "./data/lorenz_training_rk.hdf5"]
-    sys.argv = sys.argv + ["--eval_h5_file", "./data/lorenz_valid_rk.hdf5"]
+    sys.argv = sys.argv + ["--exp_name", "EEGSEP"]
+    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
     sys.argv = sys.argv + ["--batch_size", "512"]
     sys.argv = sys.argv + ["--block_size", "16"]
     sys.argv = sys.argv + ["--n_train", "2048"]
@@ -64,5 +64,5 @@ if __name__ == '__main__':
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr*0.995**(args.epoch_start-1), weight_decay=1e-8)
     scheduler = ExponentialLR(optimizer, gamma=0.995)
 
-    trainer = EmbeddingTrainer(model, args, (optimizer, scheduler))
+    trainer = EmbeddingTrainer(model, args, (optimizer, scheduler))    
     trainer.train(training_loader, testing_loader)

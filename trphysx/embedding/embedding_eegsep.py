@@ -159,6 +159,10 @@ class EEGSEPEmbedding(EmbeddingModel):
             return self.kMatrix
 
     def _normalize(self, x):
+        # error: #self.mu.size()
+                 #torch.Size([23000, 16])
+                 #x.size()
+                 #torch.Size([512, 256])
         return (x - self.mu.unsqueeze(0))/self.std.unsqueeze(0)
 
     def _unnormalize(self, x):
@@ -199,8 +203,8 @@ class EEGSEPEmbeddingTrainer(EmbeddingTrainingHead):
         mseLoss = nn.MSELoss()
 
         xin0 = states[:,0].to(device) # Time-step
-        # for eegsep data: xin0.size() is [512, 256]
-
+        # for eegsep data: xin0.size() is [512, 256] 
+       
         # Model forward for initial time-step
         g0, xRec0 = self.embedding_model(xin0)
         loss = (1e4)*mseLoss(xin0, xRec0)

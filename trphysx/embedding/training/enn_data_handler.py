@@ -270,19 +270,15 @@ class EEGSEPDataHandler(EmbeddingDataHandler):
                 if(ndata > 0 and samples > ndata): #If we have enough time-series samples break loop
                     break
 
-        # Calculate normalization constants
         data = torch.cat(examples, dim=0)
-
-        # mu.size() and std.size() is supposed to be batch_size x block_size [512, 16] I think, 
-        # since we need it to be that size for later calculations
-        # -> how do we get it to have this dimension correctly?
-
+        
+        # Calculate normalization constants
         #mu = torch.tensor([torch.mean(data[:,:,0]), torch.mean(data[:,:,1]), torch.mean(data[:,:,2])])
-        self.mu = torch.mean(data, dim=2)
+        self.mu = torch.mean(data, dim=(0,1))
         self.mu = torch.tensor(self.mu)
 
         #std = torch.tensor([torch.std(data[:,:,0]), torch.std(data[:,:,1]), torch.std(data[:,:,2])])
-        self.std = torch.mean(data, dim=2)
+        self.std = torch.mean(data, dim=(0,1))
         self.std = torch.tensor(self.std)
 
         # Needs to min-max normalization due to the reservoir matrix, needing to have a spectral density below 1

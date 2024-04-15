@@ -9,6 +9,7 @@ github: https://github.com/zabaras/transformer-physx
 """
 from collections import OrderedDict
 from .dataset_lorenz import LorenzDataset
+from .dataset_EEGSEP import EEGSEPDataset
 from .dataset_cylinder import CylinderDataset
 from .dataset_grayscott import GrayscottDataset
 from .dataset_phys import PhysicalDataset
@@ -16,6 +17,7 @@ from .dataset_phys import PhysicalDataset
 DATASET_MAPPING = OrderedDict(
         [
             ("lorenz", LorenzDataset),
+            ("EEGSEP", EEGSEPDataset),
             ("cylinder", CylinderDataset),
             ("grayscott", GrayscottDataset),
         ]

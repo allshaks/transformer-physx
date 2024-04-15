@@ -13,6 +13,7 @@ import logging
 from collections import OrderedDict
 from typing import Dict
 from .configuration_lorenz import LorenzConfig
+from .configuration_EEG_SEP import EEGSEPConfig
 from .configuration_cylinder import CylinderConfig
 from .configuration_grayscott import GrayScottConfig
 from .configuration_phys import PhysConfig
@@ -20,7 +21,7 @@ from .configuration_phys import PhysConfig
 CONFIG_MAPPING = OrderedDict(
     [
         ("lorenz", LorenzConfig),
-        ("EEGSEP", LorenzConfig),
+        ("EEGSEP", EEGSEPConfig),
         ("cylinder", CylinderConfig),
         ("grayscott", GrayScottConfig)
     ]
