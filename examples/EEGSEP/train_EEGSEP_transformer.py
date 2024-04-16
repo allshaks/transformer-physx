@@ -36,7 +36,7 @@ if __name__ == "__main__":
     sys.argv = sys.argv + ["--embedding_file_or_path", "././outputs/embedding_EEGSEP/ntrain2048_epochs300_batch512/checkpoints/embedding_EEGSEP300.pth"] #embedding file for EEGSEP? 
     sys.argv = sys.argv + ["--train_batch_size", "16"]
     sys.argv = sys.argv + ["--stride", "64"]
-    sys.argv = sys.argv + ["--n_train", "2048"]
+    sys.argv = sys.argv + ["--n_train", "2048"] #might need to be adjusted
     sys.argv = sys.argv + ["--save_steps", "25"]
     sys.argv = sys.argv + ["--n_eval", "16"]
 
