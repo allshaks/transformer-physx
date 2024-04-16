@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 if __name__ == '__main__':
 
     sys.argv = sys.argv + ["--exp_name", "lorenz"]
-    sys.argv = sys.argv + ["--training_h5_file", "./data/lorenz_training_rk.hdf5"]
-    sys.argv = sys.argv + ["--eval_h5_file", "./data/lorenz_valid_rk.hdf5"]
+    sys.argv = sys.argv + ["--training_h5_file", "./data/lorenz/lorenz_training_rk.hdf5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "./data/lorenz/lorenz_valid_rk.hdf5"]
     sys.argv = sys.argv + ["--batch_size", "512"]
     sys.argv = sys.argv + ["--block_size", "16"]
     sys.argv = sys.argv + ["--n_train", "2048"]

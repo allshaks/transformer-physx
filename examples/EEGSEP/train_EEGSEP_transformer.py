@@ -11,6 +11,10 @@ github: https://github.com/zabaras/transformer-physx
 =====
 """
 import sys
+
+# easy way to add 
+sys.path.append('/data/u_leng_software/git/transformer-physx/')
+
 import logging
 import torch
 from trphysx.config import HfArgumentParser
@@ -26,10 +30,10 @@ logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
 
-    sys.argv = sys.argv + ["--init_name", "lorenz"]
-    sys.argv = sys.argv + ["--embedding_file_or_path", "./embedding_lorenz300.pth"]
-    sys.argv = sys.argv + ["--training_h5_file","./data/lorenz_training_rk.hdf5"]
-    sys.argv = sys.argv + ["--eval_h5_file","./data/lorenz_valid_rk.hdf5"]
+    sys.argv = sys.argv + ["--init_name", "EEGSEP"]
+    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
+    sys.argv = sys.argv + ["--embedding_file_or_path", "././outputs/embedding_EEGSEP/ntrain2048_epochs300_batch512/checkpoints/embedding_EEGSEP300.pth"] #embedding file for EEGSEP? 
     sys.argv = sys.argv + ["--train_batch_size", "16"]
     sys.argv = sys.argv + ["--stride", "64"]
     sys.argv = sys.argv + ["--n_train", "2048"]

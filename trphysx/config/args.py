@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from typing import Optional, Tuple #Needs python 3.8 for literal
 
 HOME = os.getcwd()
-INITS = ['lorenz', 'cylinder', 'grayscott']
+INITS = ['lorenz', 'EEGSEP', 'cylinder', 'grayscott']
 logger = logging.getLogger(__name__)
 
 @dataclass
