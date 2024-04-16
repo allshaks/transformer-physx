@@ -9,6 +9,7 @@ github: https://github.com/zabaras/transformer-physx
 """
 from collections import OrderedDict
 from .viz_lorenz import LorenzViz
+from .viz_eegsep import EEGSEPViz
 from .viz_cylinder import CylinderViz
 from .viz_grayscott import GrayScottViz
 from .viz_model import Viz
@@ -16,6 +17,7 @@ from .viz_model import Viz
 VIZ_MAPPING = OrderedDict(
     [
         ("lorenz", LorenzViz),
+        ("EEGSEP", EEGSEPViz),
         ("cylinder", CylinderViz),
         ("grayscott", GrayScottViz),
     ]
