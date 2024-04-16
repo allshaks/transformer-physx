@@ -68,24 +68,26 @@ class EEGSEPEmbedding(EmbeddingModel):
         self.kMatrixUT = nn.Parameter(0.1*torch.rand(self.xidx.size(0)))
 
         # Normalization occurs inside the model
-        self.register_buffer('mu', torch.tensor([0., 0., 0.]))
-        self.register_buffer('std', torch.tensor([1., 1., 1.]))
+        # !part changed
+        #self.register_buffer('mu', torch.tensor([0., 0., 0.]))
+        #self.register_buffer('std', torch.tensor([1., 1., 1.]))
+        self.register_buffer('mu', torch.full((256,), 0.0))
+        self.register_buffer('std', torch.full((256,), 1.0))
         logger.info('Number of embedding parameters: {}'.format( super().num_parameters ))
 
     def forward(self, x: Tensor) -> TensorTuple:
         """Forward pass
-
+        
         Args:
-            x (Tensor): [B, 3] Input feature tensor
+            x (Tensor): [B, 256] Input feature tensor
 
         Returns:
             TensorTuple: Tuple containing:
 
                 | (Tensor): [B, config.n_embd] Koopman observables
-                | (Tensor): [B, 3] Recovered feature tensor
+                | (Tensor): [B, 256] Recovered feature tensor
         """
         # Encode
-        # for eegsep data: x.size() is [512, 256]
         x = self._normalize(x)
         g = self.observableNet(x)
         # Decode
@@ -97,7 +99,7 @@ class EEGSEPEmbedding(EmbeddingModel):
         """Embeds tensor of state variables to Koopman observables
 
         Args:
-            x (Tensor): [B, 3] Input feature tensor
+            x (Tensor): [B, 256] Input feature tensor
 
         Returns:
             Tensor: [B, config.n_embd] Koopman observables
@@ -113,7 +115,7 @@ class EEGSEPEmbedding(EmbeddingModel):
             g (Tensor): [B, config.n_embd] Koopman observables
 
         Returns:
-            Tensor: [B, 3] Physical feature tensor
+            Tensor: [B, 256] Physical feature tensor
         """
         out = self.recoveryNet(g)
         x = self._unnormalize(out)
@@ -188,7 +190,7 @@ class EEGSEPEmbeddingTrainer(EmbeddingTrainingHead):
         """Trains model for a single epoch
 
         Args:
-            states (Tensor): [B, T, 3] Time-series feature tensor
+            states (Tensor): [B, T, 256] Time-series feature tensor
 
         Returns:
             FloatTuple: Tuple containing:
@@ -232,7 +234,7 @@ class EEGSEPEmbeddingTrainer(EmbeddingTrainingHead):
         predictions.
 
         Args:
-            states (Tensor): [B, T, 3] Time-series feature tensor
+            states (Tensor): [B, T, 256] Time-series feature tensor
 
         Returns:
             Tuple[Float, Tensor, Tensor]: Test error, Predicted states, Target states

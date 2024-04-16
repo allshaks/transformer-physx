@@ -62,7 +62,7 @@ if __name__ == "__main__":
         model_args.embedding_file_or_path).to(training_args.src_device)
 
     # Load visualization utility class
-    viz = AutoViz.load_viz(model_args.viz_name, plot_dir=training_args.plot_dir)
+    #viz = AutoViz.load_viz(model_args.viz_name, plot_dir=training_args.plot_dir) #removed visualization for now
     
     # Init transformer model
     transformer = PhysformerGPT2(config, model_args.model_name)
@@ -101,7 +101,7 @@ if __name__ == "__main__":
         (optimizer, scheduler), 
         train_dataset = training_data, 
         eval_dataset = eval_data, 
-        embedding_model = embedding_model,
-        viz=viz )
+        embedding_model = embedding_model)
+        #, viz=viz ) # removed visualization for now
     
     trainer.train()
