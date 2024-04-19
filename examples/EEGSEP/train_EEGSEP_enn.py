@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 if __name__ == '__main__':
 
     sys.argv = sys.argv + ["--exp_name", "EEGSEP"]
-    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
-    sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06.h5"]
+    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06_data_noise_train.h5"]
+    sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06_data_noise_test.h5"]
     sys.argv = sys.argv + ["--batch_size", "512"]
     sys.argv = sys.argv + ["--block_size", "16"]
     sys.argv = sys.argv + ["--n_train", "2048"]
