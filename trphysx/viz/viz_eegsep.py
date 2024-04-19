@@ -1,3 +1,5 @@
+# !! just a copy of the viz_lorenz file, results should not make too much sense (3D, lorenz center etc)
+
 """
 =====
 Distributed by: Notre Dame SCAI Lab (MIT Liscense)
@@ -7,11 +9,6 @@ doi:
 github: https://github.com/zabaras/transformer-physx
 =====
 """
-
-# !! this code is a mess right now; some adjustements for eegsep data made but mostly untouched
-#!!! right now just copied from the Lorenz Viz file. 
-# Requires a lot of changes: lorenz plotted 3D, we will need 2D but have 256 channels. Maybe plot mean?
-
 import os
 import matplotlib
 import torch
@@ -79,7 +76,7 @@ class HandlerColormap(HandlerBase):
         return stripes
 
 class EEGSEPViz(Viz):
-    """Visualization class for EEGSEP (copied from Lorenz ODE)
+    """Visualization class for Lorenz ODE
 
     Args:
         plot_dir (str, optional): Directory to save visualizations in. Defaults to None.
@@ -94,11 +91,11 @@ class EEGSEPViz(Viz):
         epoch: int = None,
         pid: int = 0
     ) -> None:
-        """Plots a 2D line of a all 256 EEGSEP predictions
+        """Plots a 3D line of a single Lorenz prediction
 
         Args:
-            y_pred (Tensor): [T, 256] Prediction tensor.
-            y_target (Tensor): [T, 256] Target tensor.
+            y_pred (Tensor): [T, 3] Prediction tensor.
+            y_target (Tensor): [T, 3] Target tensor.
             plot_dir (str, optional): Directory to save figure, overrides plot_dir one if provided. Defaults to None.
             epoch (int, optional): Current epoch, used for file name. Defaults to None.
             pid (int, optional): Optional plotting id for indexing file name manually. Defaults to 0.
@@ -130,9 +127,9 @@ class EEGSEPViz(Viz):
         ax.legend(handles=cmap_handles, labels=['Prediction','Target'], handler_map=handler_map, loc='upper right', framealpha=0.95)
 
         if(not epoch is None):
-            file_name = 'eegsepPred{:d}_{:d}'.format(pid, epoch)
+            file_name = 'lorenzPred{:d}_{:d}'.format(pid, epoch)
         else:
-            file_name = 'eegsepPred{:d}'.format(pid)
+            file_name = 'lorenzPred{:d}'.format(pid)
 
         self.saveFigure(plot_dir, file_name)
 

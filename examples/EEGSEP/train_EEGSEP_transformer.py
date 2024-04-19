@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 if __name__ == "__main__":
 
     sys.argv = sys.argv + ["--init_name", "EEGSEP"]
-    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/datasedataset_sub06_data_noise_train.h5"]
+    sys.argv = sys.argv + ["--training_h5_file", "././data/Somatosensory/HDF5/dataset_sub06_data_noise_train.h5"]
     sys.argv = sys.argv + ["--eval_h5_file", "././data/Somatosensory/HDF5/dataset_sub06_data_noise_val.h5"]
     sys.argv = sys.argv + ["--embedding_file_or_path", "././outputs/embedding_EEGSEP/ntrain2048_epochs300_batch512/checkpoints/embedding_EEGSEP300.pth"] #embedding file for EEGSEP? 
     sys.argv = sys.argv + ["--train_batch_size", "16"]
@@ -62,7 +62,7 @@ if __name__ == "__main__":
         model_args.embedding_file_or_path).to(training_args.src_device)
 
     # Load visualization utility class
-    #viz = AutoViz.load_viz(model_args.viz_name, plot_dir=training_args.plot_dir) #removed visualization for now
+    viz = AutoViz.load_viz(model_args.viz_name, plot_dir=training_args.plot_dir) #removed visualization for now
     
     # Init transformer model
     transformer = PhysformerGPT2(config, model_args.model_name)
@@ -101,7 +101,7 @@ if __name__ == "__main__":
         (optimizer, scheduler), 
         train_dataset = training_data, 
         eval_dataset = eval_data, 
-        embedding_model = embedding_model)
-        #, viz=viz ) # removed visualization for now
+        embedding_model = embedding_model
+        , viz=viz ) # removed visualization for now
     
     trainer.train()
