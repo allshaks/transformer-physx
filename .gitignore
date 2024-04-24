@@ -157,5 +157,9 @@ trphysx.egg-info/
 .vscode/
 _site/
 .sass-cache/
+logs/
 send_to_raven.sbatch
+send_to_rave.sh
+send_to_cobra.sbatch
+send_to_cobra.sh
 
