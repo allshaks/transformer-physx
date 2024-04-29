@@ -84,10 +84,9 @@ class EEGSEPViz(Viz):
     def __init__(self, plot_dir: str = None) -> None:
         super().__init__(plot_dir=plot_dir)
 
-    def plotChannelPrediction(self,
+    def plotPrediction(self,
         y_pred: Tensor,
         y_target: Tensor,
-        channel: int = 0,
         plot_dir: str = None,
         epoch: int = None,
         pid: int = 0
@@ -120,8 +119,8 @@ class EEGSEPViz(Viz):
         cmaps = [plt.get_cmap("Reds"), plt.get_cmap("Blues")]
         # check dimension of y_pred, we want to extract values of all time points, for a selected trial and channel
         # code assumes that dimension is: time_points x trials x channels
-        plt.plot(y_pred[:, channel], label='Predicted')
-        plt.plot(y_target[:, channel], label='Target')
+        plt.plot(y_pred[:, 0], label='Predicted')
+        plt.plot(y_target[:, 0], label='Target')
 
         plt.legend()
 
@@ -143,55 +142,6 @@ class EEGSEPViz(Viz):
             file_name = 'EEGSEPPred{:d}_{:d}'.format(pid, epoch)
         else:
             file_name = 'EEGSEPPred{:d}'.format(pid)
-
-        self.saveFigure(plot_dir, file_name)
-    
-    def plotPrediction(self,
-        y_pred: Tensor,
-        y_target: Tensor,
-        plot_dir: str = None,
-        epoch: int = None,
-        pid: int = 0
-    ) -> None:
-        """Plots a 3D line of a single Lorenz prediction
-
-        Args:
-            y_pred (Tensor): [T, 3] Prediction tensor.
-            y_target (Tensor): [T, 3] Target tensor.
-            plot_dir (str, optional): Directory to save figure, overrides plot_dir one if provided. Defaults to None.
-            epoch (int, optional): Current epoch, used for file name. Defaults to None.
-            pid (int, optional): Optional plotting id for indexing file name manually. Defaults to 0.
-        """
-        # Convert to numpy array
-        y_pred = y_pred.detach().cpu().numpy()
-        y_target = y_target.detach().cpu().numpy()
-
-        plt.close('all')
-        mpl.rcParams['font.family'] = ['serif'] # default is sans-serif
-        mpl.rcParams['figure.dpi'] = 300
-        # rc('text', usetex=True)
-        # Set up figure
-        fig = plt.figure(figsize=(10, 10))
-        ax = fig.add_subplot(1, 1, 1, projection='3d')
-
-        cmaps = [plt.get_cmap("Reds"), plt.get_cmap("Blues")]
-        _colorline3d(y_pred[:,0], y_pred[:,1], y_pred[:,2], cmap=cmaps[0], ax=ax)
-        _colorline3d(y_target[:,0], y_target[:,1], y_target[:,2], cmap=cmaps[1], ax=ax)
-
-        ax.set_xlim([-20,20])
-        ax.set_ylim([-20,20])
-        ax.set_zlim([10,50])
-
-        cmap_handles = [Rectangle((0, 0), 1, 1) for _ in cmaps]
-        handler_map = dict(zip(cmap_handles,
-                            [HandlerColormap(cm, num_stripes=8) for cm in cmaps]))
-        # Create custom legend with color map rectangels
-        ax.legend(handles=cmap_handles, labels=['Prediction','Target'], handler_map=handler_map, loc='upper right', framealpha=0.95)
-
-        if(not epoch is None):
-            file_name = 'lorenzPred{:d}_{:d}'.format(pid, epoch)
-        else:
-            file_name = 'lorenzPred{:d}'.format(pid)
 
         self.saveFigure(plot_dir, file_name)
 
