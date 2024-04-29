@@ -88,7 +88,6 @@ class EEGSEPViz(Viz):
         y_pred: Tensor,
         y_target: Tensor,
         channel: int = 0,
-        trial: int = 0,
         plot_dir: str = None,
         epoch: int = None,
         pid: int = 0
@@ -115,14 +114,16 @@ class EEGSEPViz(Viz):
 
         # Set up figure
         fig = plt.figure(figsize=(10, 10))
-        ax = fig.add_subplot(1, 1, 1, projection='2d')
+        # ax = fig.add_subplot(1, 1, 1, projection='2d')
     
 
         cmaps = [plt.get_cmap("Reds"), plt.get_cmap("Blues")]
         # check dimension of y_pred, we want to extract values of all time points, for a selected trial and channel
         # code assumes that dimension is: time_points x trials x channels
-        plt.plot(y_pred[:,trial, channel], cmap=cmaps[0], ax=ax)
-        plt.plot(y_target[:,trial, channel], cmap=cmaps[0], ax=ax)
+        plt.plot(y_pred[:, channel], label='Predicted')
+        plt.plot(y_target[:, channel], label='Target')
+
+        plt.legend()
 
         #_colorline3d(y_pred[:,0], y_pred[:,1], y_pred[:,2], cmap=cmaps[0], ax=ax)
         #_colorline3d(y_target[:,0], y_target[:,1], y_target[:,2], cmap=cmaps[1], ax=ax)
@@ -130,11 +131,13 @@ class EEGSEPViz(Viz):
         #ax.set_xlim([-20,20])
         #ax.set_ylim([-20,20])
 
-        cmap_handles = [Rectangle((0, 0), 1, 1) for _ in cmaps]
-        handler_map = dict(zip(cmap_handles,
-                            [HandlerColormap(cm, num_stripes=8) for cm in cmaps]))
+        # cmap_handles = [Rectangle((0, 0), 1, 1) for _ in cmaps]
+        # handler_map = dict(zip(cmap_handles,
+        #                    [HandlerColormap(cm, num_stripes=8) for cm in cmaps]))
         # Create custom legend with color map rectangels
-        ax.legend(handles=cmap_handles, labels=['Prediction','Target'], handler_map=handler_map, loc='upper right', framealpha=0.95)
+        # ax.legend(handles=cmap_handles, labels=['Prediction','Target'], handler_map=handler_map, loc='upper right', framealpha=0.95)
+
+
 
         if(not epoch is None):
             file_name = 'EEGSEPPred{:d}_{:d}'.format(pid, epoch)
