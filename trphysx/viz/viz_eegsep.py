@@ -84,6 +84,65 @@ class EEGSEPViz(Viz):
     def __init__(self, plot_dir: str = None) -> None:
         super().__init__(plot_dir=plot_dir)
 
+    def plotChannelPrediction(self,
+        y_pred: Tensor,
+        y_target: Tensor,
+        channel: int = 0,
+        trial: int = 0,
+        plot_dir: str = None,
+        epoch: int = None,
+        pid: int = 0
+    ) -> None:
+        """Plots a 2D line of a single trial-channel prediction of the EEGSEP. 
+        Based on the plotPrediction function.
+
+            Args:
+                y_pred (Tensor): [T, 256] Prediction tensor.
+                y_target (Tensor): [T, 256] Target tensor.
+                channel (int, optional): Channel to plot. Defaults to 0 (= first channel). 
+                trial (int, optional): Trial to plot. Defaults to 0 (= first trial).
+                plot_dir (str, optional): Directory to save figure, overrides plot_dir one if provided. Defaults to None.
+                epoch (int, optional): Current epoch, used for file name. Defaults to None.
+                pid (int, optional): Optional plotting id for indexing file name manually. Defaults to 0.
+            """
+        # Convert to numpy array
+        y_pred = y_pred.detach().cpu().numpy()
+        y_target = y_target.detach().cpu().numpy()
+
+        plt.close('all')
+        mpl.rcParams['font.family'] = ['serif'] # default is sans-serif
+        mpl.rcParams['figure.dpi'] = 300
+
+        # Set up figure
+        fig = plt.figure(figsize=(10, 10))
+        ax = fig.add_subplot(1, 1, 1, projection='2d')
+    
+
+        cmaps = [plt.get_cmap("Reds"), plt.get_cmap("Blues")]
+        # check dimension of y_pred, we want to extract values of all time points, for a selected trial and channel
+        # code assumes that dimension is: time_points x trials x channels
+        plt.plot(y_pred[:,trial, channel], cmap=cmaps[0], ax=ax)
+        plt.plot(y_target[:,trial, channel], cmap=cmaps[0], ax=ax)
+
+        #_colorline3d(y_pred[:,0], y_pred[:,1], y_pred[:,2], cmap=cmaps[0], ax=ax)
+        #_colorline3d(y_target[:,0], y_target[:,1], y_target[:,2], cmap=cmaps[1], ax=ax)
+
+        #ax.set_xlim([-20,20])
+        #ax.set_ylim([-20,20])
+
+        cmap_handles = [Rectangle((0, 0), 1, 1) for _ in cmaps]
+        handler_map = dict(zip(cmap_handles,
+                            [HandlerColormap(cm, num_stripes=8) for cm in cmaps]))
+        # Create custom legend with color map rectangels
+        ax.legend(handles=cmap_handles, labels=['Prediction','Target'], handler_map=handler_map, loc='upper right', framealpha=0.95)
+
+        if(not epoch is None):
+            file_name = 'EEGSEPPred{:d}_{:d}'.format(pid, epoch)
+        else:
+            file_name = 'EEGSEPPred{:d}'.format(pid)
+
+        self.saveFigure(plot_dir, file_name)
+    
     def plotPrediction(self,
         y_pred: Tensor,
         y_target: Tensor,
