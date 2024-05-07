@@ -12,8 +12,8 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
 docutils==0.17.1 # https://github.com/sphinx-doc/sphinx/issues/9727
 
-torch>=1.8.0+cpu
-h5py>=2.10.0
+#torch>=1.8.0+cpu
+#h5py>=2.10.0
 filelock>=3.0.12
 packaging>=20.9
 matplotlib>=3.4.2

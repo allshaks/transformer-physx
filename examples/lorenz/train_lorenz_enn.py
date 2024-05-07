@@ -24,6 +24,16 @@ from trphysx.embedding.training import *
 
 logger = logging.getLogger(__name__)
 
+import gdown
+url_train = 'https://drive.google.com/uc?export=download&id=1vGTGzaqEZxxuLN9K-PUrYw9SLWttdDYd'
+output_train = './data/lorenz/lorenz_training_rk.hdf5'
+gdown.download(url_train, output_train, quiet=False)
+
+url_val = 'https://drive.google.com/uc?export=download&id=1bxFzKg8tSagE8kXWGm2mtaJ4gPsKJ8sI'
+output_val = './data/lorenz/lorenz_valid_rk.hdf5'
+gdown.download(url_val, output_val, quiet=False)
+
+
 if __name__ == '__main__':
 
     sys.argv = sys.argv + ["--exp_name", "lorenz"]

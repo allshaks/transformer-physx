@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 if __name__ == "__main__":
 
     sys.argv = sys.argv + ["--init_name", "lorenz"]
-    sys.argv = sys.argv + ["--embedding_file_or_path", "./outputs/embedding_lorenz/ntrain2048_epochs300_batch512/checkpoints/embedding_lorenz_pretrained.pth"]
+    sys.argv = sys.argv + ["--embedding_file_or_path", "./outputs/embedding_lorenz/ntrain2048_epochs300_batch512/checkpoints/embedding_lorenz300.pth"]
     sys.argv = sys.argv + ["--training_h5_file","./data/lorenz/lorenz_training_rk.hdf5"]
     sys.argv = sys.argv + ["--eval_h5_file","./data/lorenz/lorenz_valid_rk.hdf5"]
     sys.argv = sys.argv + ["--train_batch_size", "16"]
