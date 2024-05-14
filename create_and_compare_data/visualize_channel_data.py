@@ -122,3 +122,16 @@ if True:
 
     fig.tight_layout()
     plt.show()
+
+    ######
+    ## Singular Value Decomposition
+    # Perform SVD
+    U, s, V = np.linalg.svd(org_avg_data)
+
+    # Plot the singular values
+    plt.plot(s, 'o-')
+    plt.title('Singular Values')
+    plt.xlabel('Singular Value Index')
+    plt.ylabel('Singular Value Magnitude')
+    plt.grid(True)
+    plt.show()
