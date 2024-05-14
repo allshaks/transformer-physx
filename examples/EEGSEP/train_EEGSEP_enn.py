@@ -16,8 +16,10 @@ import torch
 from torch.optim.lr_scheduler import ExponentialLR
 
 # easy way to add to path
+#sys.path.append('/data/u_leng_software/git/transformer-physx/')
 sys.path.append('/data/u_leng_software/git/transformer-physx/')
-
+sys.path.append('C:/Nico/Studium - Master/Internship/Brain Networks - Max Planck Institut/transformer-physx/')
+                
 from trphysx.config.configuration_auto import AutoPhysConfig
 from trphysx.embedding.embedding_auto import AutoEmbeddingModel
 from trphysx.embedding.training import *
