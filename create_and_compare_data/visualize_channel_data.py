@@ -116,7 +116,7 @@ if True:
 
     fig, ax = plt.subplots(1,1)
     # plot the single channel for all the trials
-    ax.plot(org_avg_data)
+    ax.plot(org_avg_data.T)
     ax.set_title(f"Original averaged data for all channels of subject " + s)
 
 
