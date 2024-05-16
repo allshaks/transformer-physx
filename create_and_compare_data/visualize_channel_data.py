@@ -62,7 +62,138 @@ time_points = time_points*1000/2048-50
 # it has 180 entries (1 per trial) with each 369 elements (time points) 
 
 #######
-## All trils and trial averages of individual channels in comparable plot view 
+########## Understanding and analyzing the ORIGINAL DATA ########
+#######
+
+#######
+## Trial averages of all channels of ORIGINAL DATA (avg.) in butterfly plot
+if True:
+    s = '06' # subject
+    file_path = './data/Somatosensory/PlosOne/' + s + '_SEP_prepro_-50_130ms.csv'
+
+    org_avg_data = read_csv(file_path)
+    _, org_avg_data = get_data_points(org_avg_data)
+
+    fig, ax = plt.subplots(1,1)
+    # plot the single channel for all the trials
+    ax.plot(org_avg_data.T)
+    ax.set_title(f"Original averaged data for all channels of subject " + s)
+
+
+    fig.tight_layout()
+    plt.show()
+
+######
+## Singular Value Decomposition
+if True:
+    U, s, V = np.linalg.svd(org_avg_data, full_matrices=False)
+
+    # Plot the singular values
+    plt.plot(s, 'o-')
+    plt.title('Singular Values')
+    plt.xlabel('Singular Value Index')
+    plt.ylabel('Singular Value Magnitude')
+    plt.grid(True)
+    plt.show()
+
+
+    ## Variance explanied
+    # https://www.geeksforgeeks.org/image-reconstruction-using-singular-value-decomposition-svd-in-python/
+
+    # import module 
+    import seaborn as sns 
+    
+    var_explained = np.round(s**2/np.sum(s**2), decimals=6) 
+    
+    # Variance explained top Singular vectors 
+    print(f'variance Explained by Top 20 singular values:\n{var_explained[0:20]}') 
+    
+    sns.barplot(x=list(range(1, 21)), 
+                y=var_explained[0:20], color="dodgerblue") 
+    
+    plt.title('Variance Explained Graph') 
+    plt.xlabel('Singular Vector', fontsize=16) 
+    plt.ylabel('Variance Explained', fontsize=16) 
+    plt.tight_layout() 
+    plt.show() 
+
+
+## Reconstruction
+if True:
+    # plot images with different number of components 
+    comps = [255, 1, 2, 3, 4, 100] 
+    
+    num_rows = 2
+    num_cols = (len(comps) + 1) // num_rows
+    fig, axes = plt.subplots(num_rows, num_cols)
+
+    for i, comp in enumerate(comps):
+        row = i // num_cols
+        col = i % num_cols
+        low_rank = U[:, :comp] @ np.diag(s[:comp]) @ V[:comp, :] 
+        axes[row, col].plot(low_rank.T)
+        axes[row, col].set_title(f'n_components = {comp}')
+        axes[row, col].set_xlabel('Sample Index')
+        axes[row, col].set_ylabel('Value')
+
+    # Turn off extra subplots
+    for i in range(len(comps), num_rows * num_cols):
+        row = i // num_cols
+        col = i % num_cols
+        fig.delaxes(axes[row, col])
+
+    plt.tight_layout()
+    plt.show()
+
+
+## Exploration: 3D plots of the matrices
+if True:
+    ax = plt.figure().add_subplot(projection='3d')
+    
+    x_u = U[:, 1]
+    y_u = U[:, 2]
+    z_u = U[:, 3]
+
+    # Define a colormap that varies according to the index of data points
+    cmap = plt.get_cmap('viridis')
+
+    # Plot data points
+    for i in range(len(x_u)):
+        ax.plot(x_u[i:i+2], y_u[i:i+2], z_u[i:i+2], color=cmap(i/len(x_u)), alpha=0.7)
+
+    # Colorbar for reference
+    sm_u = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=len(x_u)))
+    sm_u.set_array([])
+    plt.colorbar(sm_u, ax=ax)
+    """
+    x_v = V[1,:]
+    y_v = V[2,:]
+    z_v = V[3,:]
+
+    # Define a colormap that varies according to the index of data points
+    cmap = plt.get_cmap('plasma')
+
+    # Plot data points
+    for i in range(len(x_v)):
+        ax.plot(x_v[i:i+2], y_v[i:i+2], z_v[i:i+2], color=cmap(i/len(x_v)), alpha=0.7)
+
+    # Colorbar for reference
+    sm_v = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=len(x_v)))
+    sm_v.set_array([])
+    plt.colorbar(sm_v, ax=ax)
+    """
+    ax.set_xlabel('X Label')
+    ax.set_ylabel('Y Label')
+    ax.set_zlabel('Z Label')
+
+    plt.show()
+
+#######
+########## Using same tools to analyze ARTIFICIAL DATA ########
+#######
+
+#######
+## All trials and trial averages of individual channels of the ARTIFICIAL DATA in comparable plot view 
 if False:
     fig, axs = plt.subplots(3,2, sharey='row')
     for i, chan in enumerate(selected_channels):
@@ -84,8 +215,9 @@ if False:
     plt.show()
 
 
-    #######
-    ## Trial averages of all channels of artificial data in butterfly plot
+#######
+## Trial averages of all channels of ARTIFICIAL DATA in butterfly plot
+# if this is actually useful, create matrix instead of list of lists for better efficiency
 if False:
     trial_averaged_channels = []
     for i, chan in enumerate(range(255)): # all channels
@@ -95,38 +227,21 @@ if False:
             trial_data = open_h5(filename, ds_name)
             channel_data[j] = trial_data[chan]
         trial_averaged_channels.append(np.mean(channel_data, axis = 0))
-
+    # transpose list of lists
+    trial_averaged_channels = list(map(list, zip(*trial_averaged_channels)))
     fig, ax = plt.subplots(1,1)
 
     # plot the single channel for all the trials
-    ax.plot(trial_averaged_channels)
-    ax.set_title(f"Artificial averaged data for all channels of subject " + s)
+    plt.plot(trial_averaged_channels)
+    plt.title(f"Artificial averaged data for all channels of subject {s}")
 
     fig.tight_layout()
     plt.show()
 
-    #######
-    ## Trial averages of all channels of original (average) data in butterfly plot
-if True:
-    s = '06' # subject
-    file_path = './data/Somatosensory/PlosOne/' + s + '_SEP_prepro_-50_130ms.csv'
-
-    org_avg_data = read_csv(file_path)
-    _, org_avg_data = get_data_points(org_avg_data)
-
-    fig, ax = plt.subplots(1,1)
-    # plot the single channel for all the trials
-    ax.plot(org_avg_data.T)
-    ax.set_title(f"Original averaged data for all channels of subject " + s)
-
-
-    fig.tight_layout()
-    plt.show()
-
-    ######
-    ## Singular Value Decomposition
-    # Perform SVD
-    U, s, V = np.linalg.svd(org_avg_data)
+######
+## Singular Value Decomposition
+if False:
+    U, s, V = np.linalg.svd(trial_averaged_channels, full_matrices=False)
 
     # Plot the singular values
     plt.plot(s, 'o-')
@@ -134,4 +249,53 @@ if True:
     plt.xlabel('Singular Value Index')
     plt.ylabel('Singular Value Magnitude')
     plt.grid(True)
+    plt.show()
+
+
+    ## Variance explanied
+    # https://www.geeksforgeeks.org/image-reconstruction-using-singular-value-decomposition-svd-in-python/
+
+    # import module 
+    import seaborn as sns 
+    
+    var_explained = np.round(s**2/np.sum(s**2), decimals=6) 
+    
+    # Variance explained top Singular vectors 
+    print(f'variance Explained by Top 20 singular values:\n{var_explained[0:20]}') 
+    
+    sns.barplot(x=list(range(1, 21)), 
+                y=var_explained[0:20], color="dodgerblue") 
+    
+    plt.title('Variance Explained Graph') 
+    plt.xlabel('Singular Vector', fontsize=16) 
+    plt.ylabel('Variance Explained', fontsize=16) 
+    plt.tight_layout() 
+    plt.show() 
+
+
+## Reconstruction
+if False:
+    # plot images with different number of components 
+    comps = [255, 1, 2, 3, 4, 100] 
+
+    num_rows = 2
+    num_cols = (len(comps) + 1) // num_rows
+    fig, axes = plt.subplots(num_rows, num_cols)
+
+    for i, comp in enumerate(comps):
+        row = i // num_cols
+        col = i % num_cols
+        low_rank = U[:, :comp] @ np.diag(s[:comp]) @ V[:comp, :] 
+        axes[row, col].plot(low_rank)
+        axes[row, col].set_title(f'n_components = {comp}')
+        axes[row, col].set_xlabel('Sample Index')
+        axes[row, col].set_ylabel('Value')
+
+    # Turn off extra subplots
+    for i in range(len(comps), num_rows * num_cols):
+        row = i // num_cols
+        col = i % num_cols
+        fig.delaxes(axes[row, col])
+
+    plt.tight_layout()
     plt.show()

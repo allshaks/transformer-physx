@@ -4,7 +4,7 @@ import os
 import time
 import numpy as np
 from matplotlib import cm
-from matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation, Animation
 import matplotlib.pyplot as plt
 
 # Function to read the CSV file and return the data
@@ -129,5 +129,7 @@ if True:
     ani = FuncAnimation(fig, update, frames=range(start, 369), repeat=False)
 
     plt.show()
+
+
 
 
