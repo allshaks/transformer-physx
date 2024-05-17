@@ -49,7 +49,7 @@ def get_data_points(data, selected_channels=256, selected_time_points=369):
 
 
 s = '06' # subject
-filename = "dataset_sub" + s + "_data_noise_val.h5"
+filename_val = "dataset_sub" + s + "_data_noise_val.h5"
 
 len_ds = 180 # manually set to length of validation data
 selected_channels = [0, 100, 255] # manually set channel to plot
@@ -68,7 +68,6 @@ time_points = time_points*1000/2048-50
 #######
 ## Trial averages of all channels of ORIGINAL DATA (avg.) in butterfly plot
 if True:
-    s = '06' # subject
     file_path = './data/Somatosensory/PlosOne/' + s + '_SEP_prepro_-50_130ms.csv'
 
     org_avg_data = read_csv(file_path)
@@ -146,29 +145,36 @@ if True:
     plt.show()
 
 
-## Exploration: 3D plots of the matrices
+## Exploration: plotting the vectors of the matrix V 
 if True:
-    ax = plt.figure().add_subplot(projection='3d')
+    fig, axs = plt.subplots(2,1)
+    s1 = s[0]
+    s2 = s[1]
+    s3 = s[2]
+    x_v = V[0,:]*s1
+    y_v = V[1,:]*s2
+    z_v = V[2,:]*s3
+    axs[0].plot(x_v)
+    axs[0].plot(y_v)
+    axs[0].plot(z_v)
+    axs[0].set_title("First 3 components of V matrix")
     
-    x_u = U[:, 1]
-    y_u = U[:, 2]
-    z_u = U[:, 3]
+    axs[1].plot(x_v, y_v)
+    axs[1].set_title("Phase space of first 2 components")
 
-    # Define a colormap that varies according to the index of data points
-    cmap = plt.get_cmap('viridis')
 
-    # Plot data points
-    for i in range(len(x_u)):
-        ax.plot(x_u[i:i+2], y_u[i:i+2], z_u[i:i+2], color=cmap(i/len(x_u)), alpha=0.7)
+    plt.tight_layout()
+    #plt.show()
 
-    # Colorbar for reference
-    sm_u = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=len(x_u)))
-    sm_u.set_array([])
-    plt.colorbar(sm_u, ax=ax)
-    """
-    x_v = V[1,:]
-    y_v = V[2,:]
-    z_v = V[3,:]
+
+## Exploration: 3D plots of the first three elements (phase space) of the matrices U and V
+if True:  
+    ## V components
+    ax = plt.figure().add_subplot(projection='3d')
+
+    x_v = V[0,:]
+    y_v = V[1,:]
+    z_v = V[2,:]
 
     # Define a colormap that varies according to the index of data points
     cmap = plt.get_cmap('plasma')
@@ -181,12 +187,30 @@ if True:
     sm_v = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=len(x_v)))
     sm_v.set_array([])
     plt.colorbar(sm_v, ax=ax)
-    """
-    ax.set_xlabel('X Label')
-    ax.set_ylabel('Y Label')
-    ax.set_zlabel('Z Label')
-
+    plt.title("Phase space of first 3 components of V-matrix")
     plt.show()
+
+    ## U components
+    ax = plt.figure().add_subplot(projection='3d')
+    
+    x_u = U[:, 0]
+    y_u = U[:, 1]
+    z_u = U[:, 2]
+
+    # Define a colormap that varies according to the index of data points
+    cmap = plt.get_cmap('viridis')
+
+    # Plot data points
+    for i in range(len(x_u)):
+        ax.plot(x_u[i:i+2], y_u[i:i+2], z_u[i:i+2], color=cmap(i/len(x_u)), alpha=0.7)
+
+    # Colorbar for reference
+    sm_u = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=len(x_u)))
+    sm_u.set_array([])
+    plt.colorbar(sm_u, ax=ax)
+    plt.title("Phase space of first 3 components of U-matrix")
+    plt.show()
+
 
 #######
 ########## Using same tools to analyze ARTIFICIAL DATA ########
@@ -200,7 +224,7 @@ if False:
         channel_data = np.empty((len_ds, 369)) # 369 time points
         for j in range(180):
             ds_name = "data_noise_val" + str(j)
-            trial_data = open_h5(filename, ds_name)
+            trial_data = open_h5(filename_val, ds_name)
             channel_data[j] = trial_data[chan]
         trial_averaged_channel_data = np.mean(channel_data, axis = 0)
 
@@ -224,7 +248,7 @@ if False:
         channel_data = np.empty((len_ds, 369)) # 369 time points
         for j in range(180):
             ds_name = "data_noise_val" + str(j)
-            trial_data = open_h5(filename, ds_name)
+            trial_data = open_h5(filename_val, ds_name)
             channel_data[j] = trial_data[chan]
         trial_averaged_channels.append(np.mean(channel_data, axis = 0))
     # transpose list of lists

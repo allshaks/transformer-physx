@@ -48,7 +48,7 @@ for line in data:
     data_dict[line[0]] = line[1:]
 
 # Plot topomaps for four different time points selected by looking at the peaks of the butterfly plot
-if False:
+if True:
     time_points = [136, 166, 192, 238]
     fig, axs = plt.subplots(1,4)
     for i,tp in enumerate(time_points):
