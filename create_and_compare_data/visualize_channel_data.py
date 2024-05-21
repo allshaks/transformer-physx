@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import h5py
 import logging
+import mne
 
 logger = logging.getLogger(__name__)
 
@@ -157,10 +158,10 @@ if True:
     axs[0].plot(x_v)
     axs[0].plot(y_v)
     axs[0].plot(z_v)
-    axs[0].set_title("First 3 components of V matrix")
+    axs[0].set_title("First 3 components of V matrix scaled by respective singular values")
     
     axs[1].plot(x_v, y_v)
-    axs[1].set_title("Phase space of first 2 components")
+    axs[1].set_title("Phase space of first 2 components scaled by respective singular values")
 
 
     plt.tight_layout()
@@ -211,6 +212,25 @@ if True:
     plt.title("Phase space of first 3 components of U-matrix")
     plt.show()
 
+## Exploration: Topomap of first compnent of U-matrix
+if True:
+    eeg_file_path = "./data/Somatosensory/Channel_locations/standard_waveguard256_duke.elc"
+    mnt = mne.channels.read_custom_montage(eeg_file_path, head_size = 0.131)
+    channels = mnt.ch_names
+    info = mne.create_info(channels, sfreq=2048, ch_types='eeg')
+    info.set_montage(mnt)
+
+    x_u = U[:, 0]
+    y_u = U[:, 1]
+
+    fig, axs = plt.subplots(1,2)
+    im,_ = mne.viz.plot_topomap(x_u.tolist(), info, axes=axs[0], contours=0, size=4, show=False)
+    axs[0].set_title(f"Topomap of first component of U-matrix")
+    im,_ = mne.viz.plot_topomap(y_u.tolist(), info, axes=axs[1], contours=0, size=4, show=False)
+    axs[1].set_title(f"Topomap of second component of U-matrix")
+
+    cbar = plt.colorbar(im, ax=axs.ravel().tolist())
+    plt.show()
 
 #######
 ########## Using same tools to analyze ARTIFICIAL DATA ########
