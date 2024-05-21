@@ -112,14 +112,14 @@ if True:
                 y=var_explained[0:20], color="dodgerblue") 
     
     plt.title('Variance Explained Graph') 
-    plt.xlabel('Singular Vector', fontsize=16) 
-    plt.ylabel('Variance Explained', fontsize=16) 
+    plt.xlabel('Singular Vector') 
+    plt.ylabel('Variance Explained') 
     plt.tight_layout() 
     plt.show() 
 
 
 ## Reconstruction
-if True:
+if False:
     # plot images with different number of components 
     comps = [255, 1, 2, 3, 4, 100] 
     
@@ -159,17 +159,21 @@ if True:
     axs[0].plot(y_v)
     axs[0].plot(z_v)
     axs[0].set_title("First 3 components of V matrix scaled by respective singular values")
-    
+    axs[0].set_xlabel("Amplitude")
+    axs[0].set_ylabel("Time")
+    axs[0].legend(["first component", "second component", "third component"])
+
     axs[1].plot(x_v, y_v)
     axs[1].set_title("Phase space of first 2 components scaled by respective singular values")
-
+    axs[1].set_xlabel("First component of V")
+    axs[1].set_ylabel("Second component of V")
 
     plt.tight_layout()
-    #plt.show()
+    plt.show()
 
 
 ## Exploration: 3D plots of the first three elements (phase space) of the matrices U and V
-if True:  
+if False:  
     ## V components
     ax = plt.figure().add_subplot(projection='3d')
 
@@ -212,7 +216,7 @@ if True:
     plt.title("Phase space of first 3 components of U-matrix")
     plt.show()
 
-## Exploration: Topomap of first compnent of U-matrix
+## Exploration: Topomap of first compnents of U-matrix
 if True:
     eeg_file_path = "./data/Somatosensory/Channel_locations/standard_waveguard256_duke.elc"
     mnt = mne.channels.read_custom_montage(eeg_file_path, head_size = 0.131)
@@ -222,12 +226,15 @@ if True:
 
     x_u = U[:, 0]
     y_u = U[:, 1]
+    z_u = U[:, 2]
 
-    fig, axs = plt.subplots(1,2)
+    fig, axs = plt.subplots(1,3)
     im,_ = mne.viz.plot_topomap(x_u.tolist(), info, axes=axs[0], contours=0, size=4, show=False)
     axs[0].set_title(f"Topomap of first component of U-matrix")
     im,_ = mne.viz.plot_topomap(y_u.tolist(), info, axes=axs[1], contours=0, size=4, show=False)
     axs[1].set_title(f"Topomap of second component of U-matrix")
+    im,_ = mne.viz.plot_topomap(z_u.tolist(), info, axes=axs[2], contours=0, size=4, show=False)
+    axs[2].set_title(f"Topomap of third component of U-matrix")
 
     cbar = plt.colorbar(im, ax=axs.ravel().tolist())
     plt.show()
