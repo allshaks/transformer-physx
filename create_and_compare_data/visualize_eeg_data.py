@@ -114,8 +114,11 @@ def main():
     for i in range(10):
         axs[i%5,int(np.floor(i/5))].plot(x_coordinates[i], y_coordinates[i])
         axs[i%5,int(np.floor(i/5))].set_title("Subject " + str(i+1))
-    fig.tight_layout()
 
+        
+    fig.suptitle(f"Mean Global Field Power (MGFP) of all subjects")
+    fig.tight_layout()
+    plt.subplots_adjust(top=0.9)
     plt.show()
 
 if __name__ == "__main__":

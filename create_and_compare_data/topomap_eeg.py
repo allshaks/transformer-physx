@@ -60,7 +60,7 @@ if True:
         im,_ = mne.viz.plot_topomap(data_tp, info, axes=axs[i], contours=0, size=4, show=False)
         axs[i].set_title(f"Sub006: Time point {tp}")
 
-    cbar = plt.colorbar(im, ax=axs.ravel().tolist(), orientation='horizontal')
+    cbar = fig.colorbar(im, ax=axs.ravel().tolist(), orientation='horizontal')
     plt.show()
 
 # Make an animated plot of all time points with one consistent colormap
