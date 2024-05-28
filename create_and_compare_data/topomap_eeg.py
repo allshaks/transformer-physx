@@ -14,7 +14,8 @@ def read_csv(file_path):
         data = list(reader)
     return data
 
-eeg_file_path = "./data/Somatosensory/Channel_locations/standard_waveguard256_duke.elc"
+#eeg_file_path = "./data/Somatosensory/Channel_locations/standard_waveguard256_duke.elc"
+eeg_file_path = "./data/Somatosensory/PlosOne/standard_waveguard256_duke.elc"
 
 mnt = mne.channels.read_custom_montage(eeg_file_path, head_size = 0.131)
 
