@@ -18,22 +18,6 @@ eeg_file_path = "./data/Somatosensory/Channel_locations/standard_waveguard256_du
 
 mnt = mne.channels.read_custom_montage(eeg_file_path, head_size = 0.131)
 
-#fig1 = mnt.plot()
-#fig2 = mnt.plot(kind="3d", show=False)  # 3D
-#fig2 = fig2.gca().view_init(azim=70, elev=15)
-
-
-### Get values of channels at given time points
-# get positions (x,y,z) of a specific channel: 
-
-#fig3 = mnt.viz.plot_topomap(data_time_0, channel_pos)
-
-# next steps:
-#   - create list of all channel names for loops etc
-#   - extract data for each channel at a given data point
-#   - extract positions for each channel using get_position (possible like this? get_position returns 3 coordinates (x,y,z) but we want to plot it in 2D)
-#   - make topomap using data and channel positions
-
 channels = mnt.ch_names
 info = mne.create_info(channels, sfreq=2048, ch_types='eeg')
 info.set_montage(mnt)

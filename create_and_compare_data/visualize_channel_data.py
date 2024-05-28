@@ -49,27 +49,26 @@ def get_data_points(data, selected_channels=256, selected_time_points=369):
     else:
         print("No valid indices provided.")
 
-def normalize(data):
+def center(data):
     # data must have dimension channels x time points
-
-    # center data
     channel_means = np.mean(data, axis=1, keepdims=True)
     centered_data = data - channel_means
+    return centered_data
 
-    # normalize data
+def normalize(data):
+    # data must have dimension channels x time points
+    centered_data = center(data)
     channel_std_devs = np.std(centered_data, axis=1, keepdims=True)
     normalized_data = centered_data / channel_std_devs    
 
     return normalized_data
 
-
-
-subject = '07' # subject
+subject = '07' # select subject
 save_path = "./screenshots/sub" + subject + "/"
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-num_time_points = 369 - 1  # Assuming all rows have the same number of columns
+num_time_points = 369 - 1 
 time_points = np.array(range(num_time_points))
 time_points = time_points*1000/2048-50
  
@@ -90,10 +89,10 @@ if True:
 
     fig, ax = plt.subplots(1,1)
     # plot the single channel for all the trials
-    ax.plot(org_avg_data.T)
+    ax.plot(normalize(org_avg_data).T)
     ax.set_title(f"Original averaged data for all channels for subject " + subject)
-    ax.set_xlabel("Amplitude")
-    ax.set_ylabel("Time")
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Amplitude")
 
     fig.tight_layout()
     plt.show()
@@ -106,6 +105,10 @@ if True:
     U, s, V = np.linalg.svd(norm_org_avg_data, full_matrices=False)
     
     # unnormalized values for comparison
+    centered_org_avg_data = center(org_avg_data)
+    # U, s and V unnormalized but centered
+    U_c, s_c, V_c = np.linalg.svd(centered_org_avg_data, full_matrices=False)
+    # U, s and V uncentered
     U_uc, s_uc, V_uc = np.linalg.svd(org_avg_data, full_matrices=False)
 
 
@@ -155,7 +158,7 @@ if True:
         row = i // num_cols
         col = i % num_cols
         low_rank = U[:, :comp] @ np.diag(s[:comp]) @ V[:comp, :] 
-        fig.suptitle(f"Reconstruction of the signal for subject {subject} with n components")
+        fig.suptitle(f"Reconstruction of the signal for subject {subject} (normalized) with n components")
         axes[row, col].plot(low_rank.T)
         axes[row, col].set_title(f'n_components = {comp}')
         axes[row, col].set_xlabel('Time')
@@ -181,6 +184,15 @@ if True:
     x_v = V[0,:]*s1
     y_v = V[1,:]*s2
     z_v = V[2,:]*s3
+    
+    # add centered (but not normalized) components for comparison:
+    x_v_c = V_c[0,:]*s1
+    y_v_c = V_c[1,:]*s2
+    
+    # add uncentered components for comparison:
+    x_v_uc = V_uc[0,:]*s1
+    y_v_uc = V_uc[1,:]*s2
+
     axs[0].plot(x_v)
     axs[0].plot(y_v)
     axs[0].plot(z_v)
@@ -193,12 +205,11 @@ if True:
     axs[1].set_title(f"Phase space of first 2 components scaled by respective singular values (subject {subject})")
     axs[1].set_xlabel("First component of V")
     axs[1].set_ylabel("Second component of V")
-
-    # add unnormalized components for comparison:
-    x_v_uc = V_uc[0,:]*s1
-    y_v_uc = V_uc[1,:]*s2
-    axs[1].plot(x_v_uc, y_v_uc, )
-    axs[1].legend(["normalized", "unnormalized"])
+    
+    # for comparison with only centered and fully unnormalized data 
+    axs[1].plot(x_v_c, y_v_c)
+    axs[1].plot(x_v_uc, y_v_uc)
+    axs[1].legend(["normalized", "centered", "unnormalized"])
                    
     fig.tight_layout()
     plt.show()

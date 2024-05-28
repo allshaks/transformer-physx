@@ -58,7 +58,6 @@ def open_h5(file_name,dataset_name):
     return data
 
 def main():
-    #print(f"Current Working Directory: {os.getcwd()}")
     s = '05' # subject
     file_path = './data/Somatosensory/PlosOne/' + s + '_SEP_prepro_-50_130ms.csv'
     
