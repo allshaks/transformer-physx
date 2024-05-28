@@ -49,6 +49,20 @@ def get_data_points(data, selected_channels=256, selected_time_points=369):
     else:
         print("No valid indices provided.")
 
+def normalize(data):
+    # data must have dimension channels x time points
+
+    # center data
+    channel_means = np.mean(data, axis=1, keepdims=True)
+    centered_data = data - channel_means
+
+    # normalize data
+    channel_std_devs = np.std(centered_data, axis=1, keepdims=True)
+    normalized_data = centered_data / channel_std_devs    
+
+    return normalized_data
+
+
 
 subject = '07' # subject
 save_path = "./screenshots/sub" + subject + "/"
@@ -88,8 +102,13 @@ if True:
 ######
 ## Singular Value Decomposition
 if True:
-    U, s, V = np.linalg.svd(org_avg_data, full_matrices=False)
+    norm_org_avg_data = normalize(org_avg_data)
+    U, s, V = np.linalg.svd(norm_org_avg_data, full_matrices=False)
     
+    # unnormalized values for comparison
+    U_uc, s_uc, V_uc = np.linalg.svd(org_avg_data, full_matrices=False)
+
+
     fig, ax = plt.subplots(1,1)
     # Plot the singular values
     ax.plot(s, 'o-')
@@ -175,6 +194,12 @@ if True:
     axs[1].set_xlabel("First component of V")
     axs[1].set_ylabel("Second component of V")
 
+    # add unnormalized components for comparison:
+    x_v_uc = V_uc[0,:]*s1
+    y_v_uc = V_uc[1,:]*s2
+    axs[1].plot(x_v_uc, y_v_uc, )
+    axs[1].legend(["normalized", "unnormalized"])
+                   
     fig.tight_layout()
     plt.show()
     fig.savefig(save_path + "v_components_plot.png")
@@ -190,7 +215,7 @@ if True:
     z_v = V[2,:]
 
     # Define a colormap that varies according to the index of data points
-    cmap = plt.get_cmap('plasma')
+    cmap = plt.get_cmap('Set1')
 
     # Plot data points
     for i in range(len(x_v)):
