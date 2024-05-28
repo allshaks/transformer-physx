@@ -111,7 +111,7 @@ if True:
         data_all_tp.append(data_tp)
 
     fig, axs = plt.subplots()
-    cmap = plt.cm.colormaps('plasma')
+    cmap = plt.cm.get_cmap('plasma')
     min_value = -4
     max_value = 4
     scalar_mappable = cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=min_value, vmax=max_value))
