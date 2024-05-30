@@ -123,7 +123,7 @@ def plot_butterfly(subject, data, save_path):
         save_path (str): The path to save the plot.
     """
     fig, ax = plt.subplots(1, 1)
-    ax.plot(normalize(data).T)
+    ax.plot(data.T)
     ax.set_title(f"Original averaged data for all channels for subject {subject}")
     ax.set_xlabel("Time")
     ax.set_ylabel("Amplitude")
@@ -192,7 +192,7 @@ def plot_reconstruction(subject, U, s, V, save_path):
         row = i // num_cols
         col = i % num_cols
         low_rank = U[:, :comp] @ np.diag(s[:comp]) @ V[:comp, :]
-        fig.suptitle(f"Reconstruction of the signal for subject {subject} (normalized) with n components")
+        fig.suptitle(f"Reconstruction of the signal for subject {subject} with n components")
         axes[row, col].plot(low_rank.T)
         axes[row, col].set_title(f'n_components = {comp}')
         axes[row, col].set_xlabel('Time')
@@ -207,16 +207,14 @@ def plot_reconstruction(subject, U, s, V, save_path):
     plt.show()
     fig.savefig(save_path + "overview_svd_reconstruction.png")
 
-def plot_v_components(subject, V, s, V_c, s_c, V_uc, s_uc, save_path):
+def plot_v_components(subject, V, s, V_uc, s_uc, save_path):
     """
     Plot the first three components of the V matrix and their phase space, and save the plot.
     
     Parameters:
         subject (str): The subject identifier.
-        V (np.ndarray): The right singular vectors.
-        s (np.ndarray): The singular values.
-        V_c (np.ndarray): The centered right singular vectors.
-        s_c (np.ndarray): The centered singular values.
+        V (np.ndarray): The centered right singular vectors.
+        s (np.ndarray): The centered singular values.
         V_uc (np.ndarray): The uncentered right singular vectors.
         s_uc (np.ndarray): The uncentered singular values.
         save_path (str): The path to save the plot.
@@ -226,9 +224,6 @@ def plot_v_components(subject, V, s, V_c, s_c, V_uc, s_uc, save_path):
     x_v = V[0, :] * s1
     y_v = V[1, :] * s2
     z_v = V[2, :] * s3
-
-    x_v_c = V_c[0, :] * s1
-    y_v_c = V_c[1, :] * s2
 
     x_v_uc = V_uc[0, :] * s1
     y_v_uc = V_uc[1, :] * s2
@@ -245,10 +240,9 @@ def plot_v_components(subject, V, s, V_c, s_c, V_uc, s_uc, save_path):
     axs[1].set_title(f"Phase space of first 2 components scaled by respective singular values (subject {subject})")
     axs[1].set_xlabel("First component of V")
     axs[1].set_ylabel("Second component of V")
-    
-    axs[1].plot(x_v_c, y_v_c)
+
     axs[1].plot(x_v_uc, y_v_uc)
-    axs[1].legend(['Normalized', 'Centered', 'Uncentered'])
+    axs[1].legend(['Centered', 'Uncentered'])
 
     fig.tight_layout()
     plt.show()
@@ -270,16 +264,17 @@ def main():
     
     # Extract time points and signals
     logger.info("Extracting time points and signals...")
-    time_points, signals = get_data_points(org_avg_data)
-    if signals is None:
+    # get uncentered signals
+    time_points, uc_signals = get_data_points(org_avg_data)
+    if uc_signals is None:
         logger.error("No valid signals found.")
         return
+    signals = center(uc_signals)
 
     # Perform SVD
     logger.info("Performing Singular Value Decomposition...")
-    U, s, V = np.linalg.svd(normalize(signals), full_matrices=False)
-    U_c, s_c, V_c = np.linalg.svd(center(signals), full_matrices=False)
-    U_uc, s_uc, V_uc = np.linalg.svd(signals, full_matrices=False)
+    U, s, V = np.linalg.svd(signals, full_matrices=False)
+    U_uc, s_uc, V_uc = np.linalg.svd(uc_signals, full_matrices=False)
 
     # Plot results
     logger.info("Plotting results...")
@@ -287,7 +282,7 @@ def main():
     plot_singular_values(subject, s, save_path)
     plot_variance_explained(subject, s, save_path)
     plot_reconstruction(subject, U, s, V, save_path)
-    plot_v_components(subject, V, s, V_c, s_c, V_uc, s_uc, save_path)
+    plot_v_components(subject, V, s, V_uc, s_uc, save_path)
 
     logger.info("All operations completed successfully.")
 

@@ -89,7 +89,7 @@ if True:
 
     fig, ax = plt.subplots(1,1)
     # plot the single channel for all the trials
-    ax.plot(normalize(org_avg_data).T)
+    ax.plot(org_avg_data.T)
     ax.set_title(f"Original averaged data for all channels for subject " + subject)
     ax.set_xlabel("Time")
     ax.set_ylabel("Amplitude")
@@ -101,12 +101,12 @@ if True:
 ######
 ## Singular Value Decomposition
 if True:
-    norm_org_avg_data = normalize(org_avg_data)
-    U, s, V = np.linalg.svd(norm_org_avg_data, full_matrices=False)
+    centered_org_avg_data = center(org_avg_data)
+    U, s, V = np.linalg.svd(centered_org_avg_data, full_matrices=False)
     
     # unnormalized values for comparison
     centered_org_avg_data = center(org_avg_data)
-    # U, s and V unnormalized but centered
+    # U, s and V centered
     U_c, s_c, V_c = np.linalg.svd(centered_org_avg_data, full_matrices=False)
     # U, s and V uncentered
     U_uc, s_uc, V_uc = np.linalg.svd(org_avg_data, full_matrices=False)
@@ -158,7 +158,7 @@ if True:
         row = i // num_cols
         col = i % num_cols
         low_rank = U[:, :comp] @ np.diag(s[:comp]) @ V[:comp, :] 
-        fig.suptitle(f"Reconstruction of the signal for subject {subject} (normalized) with n components")
+        fig.suptitle(f"Reconstruction of the signal for subject {subject} with n components")
         axes[row, col].plot(low_rank.T)
         axes[row, col].set_title(f'n_components = {comp}')
         axes[row, col].set_xlabel('Time')
@@ -185,10 +185,6 @@ if True:
     y_v = V[1,:]*s2
     z_v = V[2,:]*s3
     
-    # add centered (but not normalized) components for comparison:
-    x_v_c = V_c[0,:]*s1
-    y_v_c = V_c[1,:]*s2
-    
     # add uncentered components for comparison:
     x_v_uc = V_uc[0,:]*s1
     y_v_uc = V_uc[1,:]*s2
@@ -206,10 +202,9 @@ if True:
     axs[1].set_xlabel("First component of V")
     axs[1].set_ylabel("Second component of V")
     
-    # for comparison with only centered and fully unnormalized data 
-    axs[1].plot(x_v_c, y_v_c)
+    # for comparison with uncentered data 
     axs[1].plot(x_v_uc, y_v_uc)
-    axs[1].legend(["normalized", "centered", "unnormalized"])
+    axs[1].legend(["centered", "unnormalized"])
                    
     fig.tight_layout()
     plt.show()
@@ -221,9 +216,9 @@ if True:
     ## V components
     ax = plt.figure().add_subplot(projection='3d')
 
-    x_v = V[0,:]
-    y_v = V[1,:]
-    z_v = V[2,:]
+    x_v = V[0,:]*s1
+    y_v = V[1,:]*s2
+    z_v = V[2,:]*s3
 
     # Define a colormap that varies according to the index of data points
     cmap = plt.get_cmap('Set1')
