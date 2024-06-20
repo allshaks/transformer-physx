@@ -374,14 +374,15 @@ def main():
 
     # Plot results
     logger.info("Plotting results...")
-    #plot_butterfly(subject, signals, save_path)
-    #plot_singular_values(subject, s, save_path)
-    #plot_variance_explained(subject, s, save_path)
-    #plot_reconstruction(subject, U, s, V, save_path)
-    #plot_v_components(subject, V, s, color_plot=True)
-    #plot_3D_v_components(subject, V, s)
+    plot_butterfly(subject, signals, save_path)
+    plot_singular_values(subject, s, save_path)
+    plot_variance_explained(subject, s, save_path)
+    plot_reconstruction(subject, U, s, V, save_path)
+    plot_v_components(subject, V, s, color_plot=True)
+    plot_3D_v_components(subject, V, s)
 
-    # for noisy data
+    # creates mean and std. in x, y and z direction for first 3 v components for noisy data to create
+    # 3D plot of V components in phase space with mean and std. of all (or at least multiple) trials 
     subject = "6 (noise)"
     filename = "dataset_sub06_data_noise_val.h5"
     ds_name = "data_noise_val"
@@ -389,13 +390,10 @@ def main():
     all_noisy_y = []
     all_noisy_z = []
     for i in range(50):
+        # includes 50 noisy trials
         uc_noisy_signals = open_h5(filename, ds_name + str(i)) 
         noisy_signals = center(uc_noisy_signals)
-        
-        U_noisy, s_noisy, V_noisy = np.linalg.svd(noisy_signals, full_matrices=False)
-        #plot_v_components(subject, V_noisy, s_noisy, color_plot=True)
-        #plot_3D_v_components(subject, V_noisy, s_noisy)
-        
+              
         # noisy signal transformed to the space spanned by the V-matrix scaled by singular values of the average signal
         noisy_signal_transformed = np.matmul(U.T, noisy_signals)
         noisy_x, noisy_y, noisy_z = noisy_signal_transformed[:3,:]

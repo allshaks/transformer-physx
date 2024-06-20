@@ -12,14 +12,10 @@ logger = logging.getLogger(__name__)
 # Create training, test and validation data set
 # Remain flexible in sample size and time point size 
 # (org. paper used only a fraction of the time points for training), see compare_hdf5_files copy.py
-# For start create a total of 6000 samples and split it into:
+# For start create a total of 6000 samples and split it accordig to proportions that org. physx-paper used:
 #   - ~11% training data (= 660 samples)
 #   - ~86% test data (= 5160 samples)
 #   - ~3% validation data (= 180 samples)
-
-#######
-### Next steps:
-# - DOCUMENTATION and clean up code
 #######
 
 # Function to read the CSV file and return the data
@@ -80,9 +76,7 @@ def open_h5(file_name,dataset_name):
         data=data_set[:369]
     return data
 
-#def main():
-#print(f"Current Working Directory: {os.getcwd()}")
-s = '01' # subject
+s = '02' # subject
 file_path = './data/Somatosensory/PlosOne/' + s + '_SEP_prepro_-50_130ms.csv'
 data = read_csv(file_path)
 selected_channels = 256
@@ -90,7 +84,7 @@ selected_time_points = 369
 
 filename = "dataset_sub" + s
 # number of trials we create artificially
-total_num_datasets = 100
+total_num_datasets = 600
 num_datasets_train = int(total_num_datasets*0.11)
 num_datasets_test = int(total_num_datasets*0.86)
 num_datasets_val = int(total_num_datasets*0.03)
@@ -122,10 +116,13 @@ start, end = ms_range
 ms_start = (50 + start)*2
 ms_end = (50 + end)*2 
 
-if False: #switch on to show plots for checking the created noisy data
+if True: #switch on to show plots for checking the created noisy data
+    # set file name and ds_name to check test, training or validation data
+    check_filename = "dataset_sub" + s + "_data_noise_train.h5"
+    ds_name = "data_noise_train"
     # check some of the datasets by retrieving + plotting
     for i in [0, 1, 56, 520, 999]:
-        noisy_data = open_h5(filename, ds_name + str(i))
+        noisy_data = open_h5(check_filename, ds_name + str(i))
         num_time_points = len(noisy_data[0]) - 1  # Assuming all rows have the same number of columns
         time_points = np.array(range(num_time_points))
         time_points = time_points*1000/2048-50
@@ -146,20 +143,12 @@ if False: #switch on to show plots for checking the created noisy data
 #   1. The data we need is already present in "all_channel_data_noisy" so we take the rms there and store it.
 #   2. Take average of all the rms-data stored 
 #   3. Plot results and compare it to original data
-# Problems:
-# - works overall but something is wrong with the scale (artificial data has higher values)
-#   -> first taking mean than RMS should solve the problem
 
 avg_noisy_rms = (np.sqrt(np.mean(np.square(averages_noisy_channels), axis=0)))
-
-#print(len(avg_noisy_rms))
-#print(avg_noisy_rms[0])
 
 num_time_points = len(avg_noisy_rms) - 1 
 time_points = np.array(range(num_time_points))
 time_points = time_points*1000/2048-50
-
-
 
 fig, ax = plt.subplots(2,1)
 ax[0].plot(time_points[ms_start:ms_end], avg_noisy_rms[ms_start:ms_end])
@@ -173,6 +162,3 @@ ax[1].plot(time_points[ms_start:ms_end], y_coordinates[ms_start:ms_end])
 ax[1].set_title(f"Original trial-averaged RMS for subject " + s)
 ax[1].grid()
 plt.show()
-
-#if __name__ == "__main__":
-#    main()

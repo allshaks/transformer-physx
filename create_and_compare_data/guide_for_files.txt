@@ -1,0 +1,53 @@
+The code is still very messy and most parts will not be required anymore, once the original trial data is available. 
+However, especially the file applying SVD and plotting it may be useful for future use. Since the documentation is insufficient or 
+even non-existen, here are some potentially useful notes for the individual files.
+
+- add_noise_backup.py
+   - adds noise to the trial-averaged data and checks if the average (more precisely: the mean global field power MGFP) remains similar
+   - plots trial-average and individual trials to see if everything works as expected
+
+
+- add_noise_training_test_val.py
+   - creates artificial data for individual trials based on trial average for a given subject and number of trials
+   - divides data into training, test and validation data sets according to the ratio used in the tryhsx paper
+   - uses plots to check if everything worked as expected
+   - compares MGFP of original averaged data and artificial data
+
+
+- add_noise_v1.py
+   - very similar to add_noise_backup.py
+
+
+- changed_functions_of_mne_library.py
+   - adjustments to code of function in mne library, for details see topomap_eeg.py
+
+
+- compare_eeg_mgfp_data.py
+   - overview over mgfp of all subjects
+
+
+- compare_hdf5_files.py
+   - used to understand hdf5 file structure of the files used for the lorenz example of the transformer to create files of our EEG data that can be used in the sam
+
+
+- overall_v_components.py
+   - no python code, just idea that was implemented in ...
+
+
+- topomap_eeg.py
+   - plots topomap of the activity of electrons and their location at different time points
+   - animated plot to show how this activity changes over time (slow)
+   - IMPORTANT NOTE: Due to the nature of the .elc file that came with the data (which contatins the locations and names of the electrons)
+                     I had to make adjustments to a file in the mne library that I used. This is a very ugly solution but it worked for me.
+                     To be able to run this code, either the .elc files structure must be changed or - as  I did - the code of the function _read_elc 
+                     in the _standard_montage_utils.py file needs to be slightly changed. 
+                     The adjsuted code can be found in the file changed_functions_of_mne_library.py
+
+
+- visualize_channel_data_updated.py
+   - cleaned up code for many different visualizations around Singular Value Decomposition (SVD), particularly focused on the V components
+
+
+- visualize_channel_data.py
+   - first version of SVD visualizations, additionally includes visualizing U components in topomaps which is not implemented in visualize_channel_data_updated.py 
+

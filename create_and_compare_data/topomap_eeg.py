@@ -47,43 +47,6 @@ if True:
     cbar = fig.colorbar(im, ax=axs.ravel().tolist(), orientation='horizontal')
     plt.show()
 
-# Make an animated plot of all time points with one consistent colormap
-if False:
-    # Prepare data for smoother animation
-    data_all_tp = []
-    for tp in range(0,369):
-        data_tp = []
-        for ch in channels:
-            data_tp.append(float(data_dict[ch][tp]))
-        data_all_tp.append(data_tp)
-    
-    fig, axs = plt.subplots()
-    
-    cmap = plt.cm.get_cmap('plasma')
-    min_value = -4
-    max_value = 4
-    scalar_mappable = cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=min_value, vmax=max_value))
-    start = 100
-
-    for tp in range(start,369):
-        # extract data of specified time point in the order of the channels of the montage
-        data_plt = data_all_tp[tp]
-        im,_ = mne.viz.plot_topomap(data_plt, info, axes=axs, cmap=cmap, contours=0, size=4, show=False)
-        
-        # Set clim for consistent color mapping
-        im.set_clim(vmin=min_value, vmax=max_value)
-        
-        # Add colorbar to first plot
-        if tp == start:
-            cbar = plt.colorbar(scalar_mappable, ax=axs)
-
-        plt.draw()
-        plt.title(f"Current time point: {tp}")
-        plt.pause(0.001)
-        # break out of for loop if window is closed
-        if not plt.fignum_exists(1):
-            break
-
 # Improve animation using matplotlib.animation
 if True:
     # Prepare data for smoother animation
